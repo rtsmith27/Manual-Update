@@ -15,7 +15,8 @@ const doAddUpdate = (req, res, result) => {
       edition,
       author,
       publisher,
-      isbn
+      isbn,
+      technology
     });
     result.save((err, result) => {
       if (err) {
@@ -116,7 +117,7 @@ const updatesReadOne = (req, res) => {
           "message": "Not found, resultid and updateid are both required"
         });
     }
-    Loc
+    Res
       .findById(req.params.resultid)
       .select('updates')
       .exec((err, result) => {
@@ -140,8 +141,9 @@ const updatesReadOne = (req, res) => {
                 "message": "Update not found"
               });
           } else {
-            thisUpdate.author = req.body.author;
-            thisUpdate.rating = req.body.rating;
+            thisUpdate.userId = req.body.userId;
+            thisUpdate.chapter = req.body.chapter;
+            thisUpdate.section = req.body.section;
             thisUpdate.updateText = req.body.updateText;
             result.save((err, result) => {
               if (err) {
