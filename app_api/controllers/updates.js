@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
-const { response } = require('express');
-const Res = mongoose.model('Results');
+// const { response } = require('express');
+const Res = mongoose.model('Result');
 
 const doAddUpdate = (req, res, result) => {
   if (!result) {
@@ -8,9 +8,9 @@ const doAddUpdate = (req, res, result) => {
       .status(404)
       .json({"message": "Result not found"});
   } else {
-    const {authorOfUpdate, title, edition, author, publisher, isbn} = req.body;
+    const {Updater, title, edition, author, publisher, isbn} = req.body;
     result.updates.push({
-      authorOfUpdate,
+      Updater,
       title,
       edition,
       author,
@@ -63,7 +63,7 @@ const updatesCreate = (req, res) => {
 };
 
 const updatesReadOne = (req, res) => {
-    Res
+  Res
     .findById(req.params.resultid)
     .select('name updates') //the name of a book and its updates//
     .exec((err, result) => {
@@ -87,7 +87,7 @@ const updatesReadOne = (req, res) => {
               "message": "update not found"
             });
           } else {
-            response = {
+            const response = {
               result : {
                 title : result.title,
                 id : req.params.resultid

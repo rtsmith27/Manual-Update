@@ -11,7 +11,7 @@ const ctrlUpdates = require('../controllers/updates');
 // results are locations
 router
   .route('/results')
-  .get(ctrlResults.resultsListByAlphabetical)
+  // .get(ctrlResults.resultsListByAlphabetical)
   .post(ctrlResults.resultsCreate);
 
 router
@@ -27,7 +27,7 @@ router
   .post(ctrlUpdates.updatesCreate);
 
 router
-  .route('/results/:resultsid/updates/:updatesid')
+  .route('/results/:resultsid/updates/:updateid')
   .get(ctrlUpdates.updatesReadOne)
   .put(ctrlUpdates.updatesUpdateOne)
   .delete(ctrlUpdates.updatesDeleteOne);

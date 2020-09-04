@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const Res = mongoose.model('Results');
+const Res = mongoose.model('Result');
 /* do same function in Angular */
 // const resultsListByAlphabetical = (req, res) => {  //need to find a REST API to req, res in alphabetical order if possible//
 //   try{
@@ -58,10 +58,11 @@ const resultsReadOne = (req, res) => {
         return res
           .status(404)
           .json(err);
-      }
-      res
+      } else {
+         return res
         .status(200)
         .json(result);
+      } 
     });
 };
 
