@@ -1,28 +1,10 @@
 const mongoose = require('mongoose');
 
-const resultSchema = new mongoose.Schema({
-    title: {
-        type: String,
-        required: true
-    },    
-    edition: String,
-    author: [String],
-    publisher: String,
-    isbn: {
-        type: Number,
-        required: true,
-        min: 10,
-        max: 13
-    },    
-    updates: {
+const updateSchema = new mongoose.Schema({
+    updateCount:{
         type: Number,
         'default': 0
-    }
-});
-
-
-
-const updateSchema = new mongoose.Schema({
+    },
     chapter: {
         type: String,
         required: true
@@ -45,11 +27,32 @@ const updateSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    createdOn: {
+    createOn : {
         type: Date,
         'default': Date.now
     }
 });
+
+const resultSchema = new mongoose.Schema({
+    title: {
+        type: String,
+        required: true
+    },    
+    edition: String,
+    author: [String],
+    publisher: String,
+    isbn: {  // will do isbn length validation in agular 
+        type: Number,
+        required: true
+    },  
+    lastUpdate: String,
+    updateCount: Number,
+    //updates: [updateSchema]
+});
+
+
+
+
 
 // const locationSchema = new mongoose.Schema({
 //     name: {

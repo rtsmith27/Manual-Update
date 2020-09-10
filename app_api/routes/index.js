@@ -15,19 +15,20 @@ router
   .post(ctrlResults.resultsCreate);
 
 router
-  .route('/results/:resultsid')
+  .route('/results/:resultid')
   .get(ctrlResults.resultsReadOne)
   .put(ctrlResults.resultsUpdateOne)
   .delete(ctrlResults.resultsDeleteOne);
 
 // updates are reviews
 router
-  .route('/results/:resultsid/updates')
+  .route('/results/:resultid/updates')
+  /* change the get to put */
   .get(ctrlUpdates.updatesListBySection)
   .post(ctrlUpdates.updatesCreate);
 
 router
-  .route('/results/:resultsid/updates/:updateid')
+  .route('/results/:resultid/updates/:updateid')
   .get(ctrlUpdates.updatesReadOne)
   .put(ctrlUpdates.updatesUpdateOne)
   .delete(ctrlUpdates.updatesDeleteOne);

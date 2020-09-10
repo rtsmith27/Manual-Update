@@ -25,12 +25,15 @@ const Res = mongoose.model('Result');
 
 
 const resultsCreate = (req, res) => {
+  console.log('resultsCreate message');  //cannot reach this in the terminal
   Res.create({
     title: req.body.title,
     edition: req.body.edition,
     author: req.body.author,
     publisher: req.body.publisher,
     isbn: req.body.isbn,
+    lastUpdate: req.body.lastUpdate,
+    updateCount: req.body.updateCount,
   }, (err, result) => {
     if (err) {
       res
@@ -39,7 +42,7 @@ const resultsCreate = (req, res) => {
     } else {
       res
         .status(200)
-        .json({ result });
+        .json(result);
     }
   });
 };
@@ -59,9 +62,9 @@ const resultsReadOne = (req, res) => {
           .status(404)
           .json(err);
       } else {
-         return res
-        .status(200)
-        .json(result);
+        return res
+          .status(200)
+          .json(result);
       } 
     });
 };
@@ -94,8 +97,9 @@ const resultsUpdateOne = (req, res) => {
       result.author = req.body.author;
       result.publisher = req.body.publisher;
       result.isbn = req.body.isbn;
-
-      result.save((err, Res) => {  //Res replaced loc ? what was loc? //
+      result.lastUpdate = req.body.lastUpdate;
+      result.updateCount = req.body.updateCount;
+      result.save((err, Res) => {  
         if (err) {
           res
             .status(404)
@@ -103,7 +107,7 @@ const resultsUpdateOne = (req, res) => {
         } else {
           res
             .status(200)
-            .json(Res);  //Res replaced loc ? what was loc? //
+            .json(Res);  
         }
       });
     }

@@ -8,15 +8,16 @@ const doAddUpdate = (req, res, result) => {
       .status(404)
       .json({"message": "Result not found"});
   } else {
-    const {Updater, title, edition, author, publisher, isbn} = req.body;
+    const {updateCount, chapter, updater, votes, section, updateText, createdOn} = req.body;
     result.updates.push({
-      Updater,
-      title,
-      edition,
-      author,
-      publisher,
-      isbn,
-      technology
+      updateCount,
+      chapter,
+      updater,
+      votes,
+      section,
+      updateText,
+      createdOn
+      // technology
     });
     result.save((err, result) => {
       if (err) {
@@ -41,8 +42,8 @@ const updatesListBySection = (req, res) => {
 };
 
 const updatesCreate = (req, res) => {
-  const resultId = req.params.resultId;
-    if (resultid) {
+  const resultId = req.params.resultid;
+    if (resultId) {
       Res
         .findById(resultId)
         .select('updates')
@@ -141,10 +142,13 @@ const updatesReadOne = (req, res) => {
                 "message": "Update not found"
               });
           } else {
-            thisUpdate.userId = req.body.userId;
+            thisUpdate.updateCount = req.body.chapter;
             thisUpdate.chapter = req.body.chapter;
+            thisUpdate.updater = req.body.updater;
+            thisUpdate.votes = req.body.votes;
             thisUpdate.section = req.body.section;
             thisUpdate.updateText = req.body.updateText;
+            thisUpdate.createdOn = req.body.createdOn;
             result.save((err, result) => {
               if (err) {
                 res
@@ -215,7 +219,7 @@ const updatesReadOne = (req, res) => {
         } else {
           res
             .status(404)
-            .json({'message': 'No update to delete'});
+            .json({'message': 'No Update to delete'});
         }
       });
   };
