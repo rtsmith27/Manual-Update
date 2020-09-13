@@ -1,17 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-homepage',
-  templateUrl: './homepage.component.html',
-  styleUrls: ['./homepage.component.css']
+  selector: 'app-resultspage',
+  templateUrl: './resultspage.component.html',
+  styleUrls: ['./resultspage.component.css']
 })
-export class HomepageComponent implements OnInit {
+export class ResultspageComponent implements OnInit {
 
   constructor() { }
 
   ngOnInit() {
   }
-  
+
   public pageContent = {
     header: {
       title: 'Manual Update',
