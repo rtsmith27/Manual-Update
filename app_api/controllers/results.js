@@ -41,7 +41,7 @@ const resultsCreate = (req, res) => {
         .json(err);
     } else {
       res
-        .status(200)
+        .status(201)
         .json(result);
     }
   });

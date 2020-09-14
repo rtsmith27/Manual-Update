@@ -12,25 +12,25 @@ const ctrlUpdates = require('../controllers/updates');
 router
   .route('/results')
   // .get(ctrlResults.resultsListByAlphabetical)
-  .post(ctrlResults.resultsCreate);
+  .post(ctrlResults.resultsCreate); /* Working some reason Author me be listed first!!!!????? */
 
 router
   .route('/results/:resultid')
-  .get(ctrlResults.resultsReadOne)
-  .put(ctrlResults.resultsUpdateOne)
-  .delete(ctrlResults.resultsDeleteOne);
+  .get(ctrlResults.resultsReadOne) /* Working */
+  .put(ctrlResults.resultsUpdateOne) /* Working */
+  .delete(ctrlResults.resultsDeleteOne); /* Working */
 
 // updates are reviews
 router
   .route('/results/:resultid/updates')
   /* change the get to put */
-  .get(ctrlUpdates.updatesListBySection)
-  .post(ctrlUpdates.updatesCreate);
+  .get(ctrlUpdates.updatesListBySection) /* Do I Need This?? */
+  .post(ctrlUpdates.updatesCreate); /* Working */
 
 router
   .route('/results/:resultid/updates/:updateid')
-  .get(ctrlUpdates.updatesReadOne)
-  .put(ctrlUpdates.updatesUpdateOne)
-  .delete(ctrlUpdates.updatesDeleteOne);
+  .get(ctrlUpdates.updatesReadOne) /* Working */
+  .put(ctrlUpdates.updatesUpdateOne) /* Working */
+  .delete(ctrlUpdates.updatesDeleteOne); /* Working */
 
 module.exports = router;

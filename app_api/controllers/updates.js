@@ -1,45 +1,8 @@
 const mongoose = require('mongoose');
 // const { response } = require('express');
 const Res = mongoose.model('Result');
+// const Upd = mongoose.model('Update');
 
-const doAddUpdate = (req, res, result) => {
-  if (!result) {
-    res
-      .status(404)
-      .json({"message": "Result not found"});
-  } else {
-    const {updateCount, chapter, updater, votes, section, updateText, createdOn} = req.body;
-    result.updates.push({
-      updateCount,
-      chapter,
-      updater,
-      votes,
-      section,
-      updateText,
-      createdOn
-      // technology
-    });
-    result.save((err, result) => {
-      if (err) {
-        res
-          .status(400)
-          .json(err);
-      } else {
-        // updateAverageRating(result._id);  used to call fuction to update the average rating
-        const thisUpdate = result.updates.slice(-1).pop();
-        res
-          .status(201)
-          .json(thisUpdate);
-      }
-    });
-  }
-};
-
-const updatesListBySection = (req, res) => {
-    res
-      .status(200)
-      .json({"status" : "success"});
-};
 
 const updatesCreate = (req, res) => {
   const resultId = req.params.resultid;
@@ -155,7 +118,6 @@ const updatesReadOne = (req, res) => {
                   .status(404)
                   .json(err);
               } else {
-                updateAverageRating(result._id);
                 res
                   .status(200)
                   .json(thisUpdate);
@@ -209,7 +171,6 @@ const updatesReadOne = (req, res) => {
                   .status(404)
                   .json(err);
               } else {
-                updateAverageRating(result._id);
                 res
                   .status(204)
                   .json(null);
@@ -224,6 +185,44 @@ const updatesReadOne = (req, res) => {
       });
   };
 
+  const doAddUpdate = (req, res, result) => {
+    if (!result) {
+      res
+        .status(404)
+        .json({"message": "Result not found"});
+    } else {
+      // const {updateCount, chapter, updater, votes, section, updateText, createdOn} = req.body;
+      result.updates.push({
+        updateCount: req.body.updateCount,
+        chapter: req.body.chapter,
+        updater: req.body.updater,
+        votes: req.body.votes,
+        section: req.body.section,
+        updateText: req.body.updateText,
+        createdOn: req.body.createdOn
+        // technology
+      });
+      result.save((err, result) => {
+        if (err) {
+          res
+            .status(400)
+            .json(err);
+        } else {
+          // updateAverageRating(result._id);  used to call fuction to update the average rating
+          const thisUpdate = result.updates.slice(-1).pop();
+          res
+            .status(201)
+            .json(thisUpdate);
+        }
+      });
+    }
+  };
+  
+  const updatesListBySection = (req, res) => {
+      res
+        .status(200)
+        .json({"status" : "success"});
+  };
 module.exports = {
     updatesListBySection,
     updatesCreate,

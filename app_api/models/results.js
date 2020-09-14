@@ -47,7 +47,7 @@ const resultSchema = new mongoose.Schema({
     },  
     lastUpdate: String,
     updateCount: Number,
-    //updates: [updateSchema]
+    updates: [updateSchema]
 });
 
 
@@ -77,3 +77,4 @@ const resultSchema = new mongoose.Schema({
 // });
 
 mongoose.model('Result', resultSchema);
+// mongoose.model('Update', updateSchema);
