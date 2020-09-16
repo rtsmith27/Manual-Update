@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 
+import { AppRoutingModule } from './app-routing/app-routing.module';
+
 import { ResultListComponent } from './result-list/result-list.component';
 import { FrameworkComponent } from './framework/framework.component';
 import { AboutComponent } from './about/about.component';
@@ -10,6 +12,8 @@ import { HomepageComponent } from './homepage/homepage.component';
 import { PageHeaderComponent } from './page-header/page-header.component';
 import { ResultspageComponent } from './resultspage/resultspage.component';
 import { HtmlLineBreaksPipe } from './html-line-breaks.pipe';
+import { DetailsPageComponent } from './details-page/details-page.component';
+import { ResultDetailsComponent } from './result-details/result-details.component';
 
 @NgModule({
   declarations: [
@@ -19,25 +23,15 @@ import { HtmlLineBreaksPipe } from './html-line-breaks.pipe';
     HomepageComponent,
     PageHeaderComponent,
     ResultspageComponent,
-    HtmlLineBreaksPipe
+    HtmlLineBreaksPipe,
+    DetailsPageComponent,
+    ResultDetailsComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     RouterModule.forRoot([
-      {
-        path: '',
-        component: HomepageComponent
-      },
-      {
-        path: 'Results',
-        component: ResultListComponent
-      },
-      {
-        path: 'about',
-        component: AboutComponent
-      }
-    ])
+      
   ],
   providers: [],
   bootstrap: [FrameworkComponent]

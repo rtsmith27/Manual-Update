@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Result, /*Update*/ } from './result-list/result-list.component';
+import { Result, Update } from './result';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +14,7 @@ export class ManualUpdateDataService {
   // ?Do I need to use this section to get my Results?
   public getResults(): Promise<Result[]> {
     // const maxDistance: number = 20000;
-    const url: string = `${this.apiBaseUrl}/results?`;
+    const url: string = `${this.apiBaseUrl}/results`;
     return this.http
       .get(url)
       .toPromise()
@@ -30,15 +30,16 @@ export class ManualUpdateDataService {
       .then(response => response as Result)
       .catch(this.handleError);
   }
+  
 
-  // public addUpdateByResultId(resultId: string, formData: Update): Promise<Update> {
-  //   const url: string = `${this.apiBaseUrl}/results/${resultId}/updates`;
-  //   return this.http
-  //     .post(url, formData)
-  //     .toPromise()
-  //     .then(response => response as Update)
-  //     .catch(this.handleError);
-  // }
+  public addUpdateByResultId(resultId: string, formData: Update): Promise<Update> {
+    const url: string = `${this.apiBaseUrl}/results/${resultId}/updates`;
+    return this.http
+      .post(url, formData)
+      .toPromise()
+      .then(response => response as Update)
+      .catch(this.handleError);
+  }
 
 
   private handleError(error: any): Promise<any> {
