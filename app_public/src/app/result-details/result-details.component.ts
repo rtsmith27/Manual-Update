@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Result, Update } from '../result' /*'../result-list/result-list.component'*/;
 import { ManualUpdateDataService } from '../manual-update-data.service'
-import * as $ from "jquery";
+// import * as $ from "jquery";
 
 @Component({
   selector: 'app-result-details',
@@ -15,11 +15,11 @@ export class ResultDetailsComponent implements OnInit {
   public newUpdate: Update = {
     chapter: '',
     updater: '',
-    votes: 5,
+    votes: 0,
     section: '',
     updateText: '',
     createdOn: '',
-    updateCount: 7
+    updateCount: 0
   };
 
   public formVisible: boolean = false;
@@ -32,12 +32,12 @@ export class ResultDetailsComponent implements OnInit {
 
 }
 
-$(function() {
+// $(function() {
 
-  $('.list-group-item').on('click', function() {
-    $('.fas', this)
-      .toggleClass('fa-angle-right')
-      .toggleClass('fa-angle-down');
-  });
+//   $('.list-group-item').on('click', function() {
+//     $('.fas', this)
+//       .toggleClass('fa-angle-right')
+//       .toggleClass('fa-angle-down');
+//   });
 
-});
+// });

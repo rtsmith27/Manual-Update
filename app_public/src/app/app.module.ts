@@ -14,6 +14,7 @@ import { ResultspageComponent } from './resultspage/resultspage.component';
 import { HtmlLineBreaksPipe } from './html-line-breaks.pipe';
 import { DetailsPageComponent } from './details-page/details-page.component';
 import { ResultDetailsComponent } from './result-details/result-details.component';
+// import { UpvoteButtonComponent } from './upvote-button/upvote-button.component';
 
 @NgModule({
   declarations: [
@@ -25,14 +26,15 @@ import { ResultDetailsComponent } from './result-details/result-details.componen
     ResultspageComponent,
     HtmlLineBreaksPipe,
     DetailsPageComponent,
-    ResultDetailsComponent
+    ResultDetailsComponent,
+    // UpvoteButtonComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
-    RouterModule.forRoot([
-      
-  ],
+    AppRoutingModule,
+    RouterModule
+],
   providers: [],
   bootstrap: [FrameworkComponent]
 })

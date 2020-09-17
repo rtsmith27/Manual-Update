@@ -6,7 +6,7 @@ import { ResultListComponent } from '../result-list/result-list.component';
 import { AboutComponent } from '../about/about.component';
 import { HomepageComponent } from '../homepage/homepage.component';
 import { DetailsPageComponent } from '../details-page/details-page.component';
-
+import { ResultspageComponent } from '../resultspage/resultspage.component'
 
 const routes: Routes = [
 {
@@ -15,7 +15,7 @@ const routes: Routes = [
 },
 {
   path: 'Results',
-  component: ResultListComponent
+  component: ResultspageComponent
 },
 {
   path: 'about',

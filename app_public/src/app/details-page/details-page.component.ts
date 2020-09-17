@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 // import { Component, OnInit } from '@angular/core';
 import { ManualUpdateDataService } from '../manual-update-data.service';
-import { Result } from '../result-list/result-list.component';
-import { ActivatedRoute } from '@angular/router';
+import { Result } from '../result';
+import { ActivatedRoute, ParamMap } from '@angular/router';
+import { switchMap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-details-page',
@@ -14,16 +15,22 @@ export class DetailsPageComponent implements OnInit {
   constructor(
     private manualUpdateDataService: ManualUpdateDataService,
     private route: ActivatedRoute
-    ) { }
+  ) { }
+
+  public newResult: Result;
 
   ngOnInit(): void {
-    // this.route.paramMap
-    //   .pipe(
-    //     switchMap((params: ParamMap) => {
-    //       let id = params.get('resultId')
-    //       return this.manualUpdateDataService.getResultById(id);
-    //     })
-    //   )
+    this.route.paramMap
+      .pipe(
+        switchMap((params: ParamMap) => {
+          let id = params.get('resultId')
+          return this.manualUpdateDataService.getResultById(id);
+        })
+      )
+      .subscribe((newResult: Result) => {
+        this.newResult = newResult;
+        this.pageContent.header.title = newResult.title;
+      });
   }
 
   public pageContent = {
