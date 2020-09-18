@@ -1,18 +1,20 @@
-<app-page-header></app-page-header>
-<app-result-list></app-result-list>
+<!-- <app-page-header></app-page-header> -->
+<!-- <app-result-list></app-result-list> -->
 <div class="card" *ngFor="let result of results">
     <div class="card-block">
         <h4>
             <a routerLink="/result/{{result._id}}">{{result.title}}</a>
-            <span class="badge badge-pill badge-default float-right">{{result.isbn }}</span>
+            <span class="badge badge-pill badge-default float-right">{{ result.isbn }}</span>
         </h4>
-        <p class="address">{{result.edition}}</p>
-        <p class="address">{{result.publisher}}</p>
-        <span class="address">{{result.lastUpdate}}</span>
-        <span class="address">{{result.updateCount}}</span>
+        <h3>
+        <p class="info">{{result.edition}}</p>
+        <p class="info">{{result.publisher}}</p>
+        <span class="info">{{result.lastUpdate}}</span>
+        <span class="info">{{result.updateCount}}</span>
         <div class="facilities">
             <span *ngFor="let author of result.author" class="badge badge-warning">{{author}}</span>
         </div>
+        </h3>
     </div>
 </div>
 <!-- display all resluts with a loop locations list page-->

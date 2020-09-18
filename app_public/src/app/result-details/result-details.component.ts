@@ -30,7 +30,38 @@ export class ResultDetailsComponent implements OnInit {
   ngOnInit() {
   }
 
+  private formIsValid(): boolean {
+    if (this.newUpdate.updater && this.newUpdate.chapter && this.newUpdate.section && this.newUpdate.updateText) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  public onUpdateSubmit(): void {
+    this.formError = '';
+    if (this.formIsValid()) {
+      this.manualUpdateDataService.addUpdateByResultId(this.result._id, this.newUpdate)
+        .then((review: Update) => {
+          // let updates = this.result.updates.slice(0);
+          // updates.unshift(update);
+          // this.result.updates = updates;
+          this.resetAndHideUpdateForm();
+        });
+    } else {
+      this.formError = 'Missed reauired field, please try again';
+    }
+  }
+
+  private resetAndHideUpdateForm(): void {
+    this.formVisible = false;
+    this.newUpdate.updater = '';
+    this.newUpdate.chapter = '';
+    this.newUpdate.section = '';
+    this.newUpdate.updateText = '';
+  }
 }
+
 
 // $(function() {
 

@@ -1,8 +1,69 @@
 <!-- This needs to be placed inside of an update!! Its the vote button. -->
 <!-- <upvote-button [itemId]='item?.$key' [userId]='user?.uid'></upvote-button> -->
 
+<div class="row">
+  <div class="col-12">
+    <div class="card card-primary update-card">
+      <div class="card-block">
+        <button (click)="formVisible=true" class="btn btn-primary float-right">Add update</button>
+        <h2 class="card-title">Manual Update</h2>
+        <div *ngIf="formVisible">
+          <form (ngSubmit)="onUpdateSubmit()"> 
+            <hr>
+            <h4>Add your update</h4>
+            <div *ngIf="formError" class="alert alert-danger" role="alert">
+              {{ formError }}
+            </div>
+            <div class="form-group row">
+              <label for="updater" class="col-sm-2 col-form-label">Updater</label>
+              <div class="col-sm-10">
+                <input [(ngModel)]="newUpdate.updater" id="updater" name="updater" required="required" class="form-control">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="chapter" class="col-sm-2 col-form-label">Chapter</label>
+              <div class="col-sm-10">
+                <input [(ngModel)]="newUpdate.chapter" id="chapter" name="chapter" required="required" class="form-control"> 
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="section" class="col-sm-2 col-form-label">Section</label>
+              <div class="col-sm-10">
+                <input [(ngModel)]="newUpdate.section" id="section" name="section" class="form-control"> 
+              </div>
+            </div>  
+            <div class="form-group row">
+              <label for="update" class="col-sm-2 col-form-label">Update</label>
+              <div class="col-sm-10">
+                <textarea [(ngModel)]="newUpdate.updateText" name="update" id="update" rows="5" class="form-control"></textarea>
+              </div>
+            </div>
+            <div class="form-group row">
+              <div class="col-12">
+                <button type="submit" class="btn btn-primary float-right" style="margin-left:15px">Submit update</button>
+                <button (click)="formVisible=false" type="button" class="btn btn-default float-right">Cancel</button>
+              </div>
+            </div>
+            <hr>
+          </form>
+        </div>
+        <div *ngFor="let update of result.updates | mostRecentFirst" class="row update">
+          <div class="col-12 no-gutters update-header">
+            <!-- <app-rating-stars [rating]="review.rating"></app-rating-stars> -->
+            <span class="updateUpdate">{{ update.updater }}</span>
+            <small class="updateTimestamp">{{ update.createdOn | date : 'd MMMM yyyy'}}</small>
+          </div>
+          <div class="col-12">
+            <p [innerHTML]="update.updateText | htmlLineBreaks"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
-<div class="just-padding">
+<!-- !!!!Below is an accordion list, Add Update and Upvote button needs to be placed inside of the accordion.!!! -->
+<!-- <div class="just-padding">
 
     <div class="list-group list-group-root card">
   
@@ -111,4 +172,4 @@
   
     </div>
   
-  </div>
+  </div> -->

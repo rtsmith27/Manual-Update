@@ -14,7 +14,7 @@ export class HomepageComponent implements OnInit {
   
   public pageContent = {
     header: {
-      title: 'Manual Update',
+      title: 'Manual Update:',
       strapline: 'Need an update, use an update. Have an update, leave an update. '
     }
   };

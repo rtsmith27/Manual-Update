@@ -22,7 +22,8 @@ const routes: Routes = [
   component: AboutComponent
 },
 {
-  path: 'result/:resultId',
+  // path: 'result/:resultId',
+  path: 'Details',
   component: DetailsPageComponent
 }
 ];

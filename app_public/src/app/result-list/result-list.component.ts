@@ -2,18 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { ManualUpdateDataService } from '../manual-update-data.service';
 import { Result } from '../result';
 
-// export class Result {
-//   _id: string;
-//   title: string;
-//   edition: string;
-//   author: string[];
-//   publisher: string;
-//   isbn: number;
-//   lastUpdate: number;
-//   updateCount: number;
-//   updates: object /*?, or string*/
-// }
-
 @Component({
   selector: 'app-result-list',
   templateUrl: './result-list.component.html',
@@ -30,11 +18,12 @@ export class ResultListComponent implements OnInit {
   ngOnInit() {
     this.getResults();
   }
+
 private getResults(): void {
   this.manualUpdateDataService
     .getResults()
       .then(foundResults => {
-        this.results = foundResults
+        this.results = foundResults;
       });
   }
 
