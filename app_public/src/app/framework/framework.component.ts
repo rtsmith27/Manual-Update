@@ -9,7 +9,7 @@ export class FrameworkComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit(): void {
+  ngOnInit() {
   }
 
 }

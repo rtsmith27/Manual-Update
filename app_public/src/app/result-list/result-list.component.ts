@@ -20,14 +20,16 @@ export class ResultListComponent implements OnInit {
   }
 
 private getResults(): void {
+  this.message = 'Searching for results'
   this.manualUpdateDataService
-    .getResults()
+      .getResults()
       .then(foundResults => {
+        this.message = foundResults.length > 0 ? '' : 'No results found';
         this.results = foundResults;
       });
   }
 
 private showError(error: any): void {
   this.message = error.message;
-  }
+  };
 }
