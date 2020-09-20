@@ -1,6 +1,39 @@
 const mongoose = require('mongoose');
 const readLine = require('readline');
 
+const MongoClient = require('mongodb').MongoClient;
+const assert = require('assert');
+
+/*
+ * Requires the MongoDB Node.js Driver
+ * https://mongodb.github.io/node-mongodb-native
+ */
+
+const agg = [
+  {
+    '$project': {
+      'title': 1, 
+      '_id': 0, 
+      'edition': 1, 
+      'author': 1, 
+      'publisher': 1, 
+      'isbn': 1
+    }
+  }
+];
+
+MongoClient.connect(
+  'mongodb://localhost:27017/?readPreference=primary&appname=MongoDB%20Compass%20Community&ssl=false',
+  { useNewUrlParser: true, useUnifiedTopology: true },
+  function(connectErr, client) {
+    assert.equal(null, connectErr);
+    const coll = client.db('manualUpdate').collection('results');
+    coll.aggregate(agg, (cmdErr, result) => {
+      assert.equal(null, cmdErr);
+    });
+    client.close();
+  });
+
 let dbURL = 'mongodb://127.0.0.1/manualUpdate';
 if (process.env.NODE_ENV === 'production') {
   dbURL = process.env.DB_HOST || process.env.MONGODB_URI;

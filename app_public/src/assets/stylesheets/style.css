@@ -1,26 +1,26 @@
-@import url("//fonts.googleapis.com/css?family=Lobster|Cabin:400,700");
+@import url("//fonts.googleapis.com/css?family=Montserrat|Nunito:400,700");
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Lobster', cursive;
+  font-family: 'Montserrat', ;
 }
 
 legend {
-  font-family: 'Lobster', cursive;
+  font-family: 'Montserrat', ;
 }
 
 .navbar {
-  background-color: #ad1d28;
-  border-color: #911821;
+  background-color: #f1f1f1;
+  border-color: #f1f1f1;
 }
 
 .navbar-light .navbar-brand {
-  font-family: 'Lobster', cursive;
-  color: #fff;
+  font-family: 'Montserrat', ;
+  color: black;
 }
 
 .navbar-light .navbar-toggler {
-  color: white;
-  border-color: white;
+  color: black;
+  border-color: black;
 }
 
 .navbar-light .navbar-toggler-icon {
@@ -28,7 +28,7 @@ legend {
 }
 
 .navbar-light .navbar-nav .nav-link, .navbar-light .navbar-nav .nav-link:focus, .navbar-light .navbar-nav .nav-link:hover {
-  color: white;
+  color: black;
 }
 
 .card {
@@ -97,12 +97,12 @@ a {
 }
 
 a:hover {
-  color:#fff
+  color: purple
 }
 
 body {
   text-align: justify;
-  font-family: "Cabin", Arial, sans-serif;
-  color: #fff;
-  background-color: #108a93;
+  font-family: "Montserrt", Arial, sans-serif;
+  color: black;
+  background-color: #f1f1f1;
 }
