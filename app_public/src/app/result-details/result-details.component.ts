@@ -42,11 +42,11 @@ export class ResultDetailsComponent implements OnInit {
     this.formError = '';
     if (this.formIsValid()) {
       this.manualUpdateDataService.addUpdateByResultId(this.result._id, this.newUpdate)
-        .then((review: Update) => {
+        .then((update: Update) => {
           // let updates = this.result.updates.slice(0);
           // updates.unshift(update);
           // this.result.updates = updates;
-          this.resetAndHideUpdateForm();
+          // this.resetAndHideUpdateForm();
         });
     } else {
       this.formError = 'Missed reauired field, please try again';
