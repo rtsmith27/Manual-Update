@@ -1,7 +1,24 @@
-<app-page-header [content]="pageContent.header"></app-page-header>
-<img src="../../assets/Photos/books-background (1).jpg">
-<form class="form-inline md-form form-sm">
-  <mdb-icon fas icon="search" aria-hidden="true"></mdb-icon>
-  <input class="form-control form-control-sm ml-3 w-75" type="text" placeholder="Search" aria-label="Search"
-    mdbInput>
-</form>
+
+
+<body>
+  <app-page-header [content]="pageContent.header"></app-page-header>
+    <!-- <img src="../../assets/Photos/books-background (1).jpg"> -->
+  <div class="container, hero">
+      <div id="content">
+        <form class='form-inline'>
+          <div class="input-group">
+            <input type='text' id='search' class="form-control search-form" placeholder="Find your update">
+            <span class="input-group-btn" style="width:39px">
+              <button id="search-this"type="button" class="pull-right btn btn-default search-btn">
+                  <i class="fa fa-search"></i>
+              </button>
+            </span>
+          </div>
+        </form>
+        
+        <!-- <p class="text-center">Some centered text</p> -->
+        
+        
+    </div>
+  </div>
+  </body>

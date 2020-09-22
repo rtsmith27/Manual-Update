@@ -1,28 +1,34 @@
 const mongoose = require('mongoose');
 const Res = mongoose.model('Result');
-/* do same function in Angular */
-// const resultsListByAlphabetical = (req, res) => {  //need to find a REST API to req, res in alphabetical order if possible//
-//   try{
-//   const results = results.map(result => {
-//     return {
-//       _id: result._id,
-//       title: result.title,
-//       edition: result.edition,
-//       author: result.author,
-//       publisher: result.publisher,
-//       isbn: result.isbn
-//     }
-//   });
-//   res
-//     .status(200)
-//     .json(results);
-//   }catch (err) {
-//   res
-//     .status(404)
-//     .json(err);
-// }
-//   };
 
+const resultsListByAlphabetical = (req, res) => {  //need to find a REST API to req, res in alphabetical order if possible//
+  try{
+    Res.find({}).exec(
+      (err, bookResults) => {
+        console.log('entered result list', bookResults);
+        const results = bookResults.map(result => {
+          return {
+            _id: result._id,
+            title: result.title,
+            edition: result.edition,
+            author: result.author,
+            publisher: result.publisher,
+            isbn: result.isbn
+          }
+        });
+        res
+          .status(200)
+          .json(results);
+      }
+    );
+  
+  } catch (err) {
+    console.log('500');
+  res
+    .status(500)
+    .json(err);
+}
+  };
 
 const resultsCreate = (req, res) => {
   console.log('resultsCreate message');  //cannot reach this in the terminal
@@ -139,7 +145,7 @@ const resultsDeleteOne = (req, res) => {
 };
 
 module.exports = {
-  // resultsListByAlphabetical,
+  resultsListByAlphabetical,
   resultsCreate,
   resultsReadOne,
   resultsUpdateOne,

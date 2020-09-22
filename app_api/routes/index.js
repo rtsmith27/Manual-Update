@@ -11,7 +11,7 @@ const ctrlUpdates = require('../controllers/updates');
 // results are locations
 router
   .route('/results')
-  // .get(ctrlResults.resultsListByAlphabetical)
+  .get(ctrlResults.resultsListByAlphabetical)
   .post(ctrlResults.resultsCreate); /* Working some reason Author me be listed first!!!!????? */
 
 router
@@ -33,9 +33,5 @@ router
   .put(ctrlUpdates.updatesUpdateOne) /* Working */
   .delete(ctrlUpdates.updatesDeleteOne); /* Working */
 
-  // 3 lines below are unsplash
-require('babel-register');
-global.fetch = require('node-fetch');
-require('./app');
 
 module.exports = router;
