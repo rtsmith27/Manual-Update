@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, ParamMap } from '@angular/router';
 import { ManualUpdateDataService } from '../manual-update-data.service';
 import { Result } from '../result';
-import { ActivatedRoute, ParamMap } from '@angular/router';
 import { switchMap } from 'rxjs/operators';
 
 @Component({

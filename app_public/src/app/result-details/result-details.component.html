@@ -1,6 +1,33 @@
 <!-- This needs to be placed inside of an update!! Its the vote button. -->
 <!-- <upvote-button [itemId]='item?.$key' [userId]='user?.uid'></upvote-button> -->
-
+<div class="row">
+  <div class="col-12 col-md-6">
+    <p>{{ result.title }}</p>
+    <p>{{ result.author }}</p>
+    <p>{{ result.edition }}</p>
+    <p>{{ result.publisher }}</p>
+    <p>{{ result.isbn }}</p>
+    <!-- <div class="card card-primary">
+      <div class="card-block">
+        <h2 class="card-title">Opening hours</h2>
+        <p class="card-text" *ngFor="let time of location.openingTimes" [ngSwitch]="time.closed">
+          {{ time.days }} :
+          <span *ngSwitchCase="true">Closed</span>
+          <span *ngSwitchDefault>{{ time.opening + " - " + time.closing }}</span>
+        </p>
+      </div>
+    </div> -->
+    <!-- <div class="card card-primary">
+      <div class="card-block">
+        <h2 class="card-title">Facilities</h2>
+        <span *ngFor="let facility of location.facilities" class="badge badge-warning">
+          <i class="fa fa-check"></i>
+          {{facility}}
+        </span>
+      </div>
+    </div> -->
+  </div>
+</div>
 <div class="row">
   <div class="col-12">
     <div class="card card-primary update-card">
@@ -47,14 +74,15 @@
             <hr>
           </form>
         </div>
-        <div *ngFor="let update of result.updates | mostRecentFirst" class="row update">
+        <div *ngFor="let update of result.updates" class="row update">
           <div class="col-12 no-gutters update-header">
             <!-- <app-rating-stars [rating]="review.rating"></app-rating-stars> -->
-            <span class="updateUpdate">{{ update.updater }}</span>
+            <label>Updater: </label><span class="updateUpdater">{{ update.updater }}</span><br>
+            <label>chapter: </label><span class="updateUpdater">{{ update.chapter }}</span><br>
+            <label>Update Text: </label><span class="updateUpdater">{{ update.updateText }}</span><br>
             <small class="updateTimestamp">{{ update.createdOn | date : 'd MMMM yyyy'}}</small>
           </div>
           <div class="col-12">
-            <p [innerHTML]="update.updateText | htmlLineBreaks"></p>
           </div>
         </div>
       </div>

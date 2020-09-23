@@ -1,24 +1,26 @@
 const express = require('express');
 const router = express.Router();
-// const ctrlLocations = require('../controllers/homepage');
+const jwt = require('express-jwt');
+// const auth = jwt({
+//   secret: process.env.JWT_SECRET,
+//   userProperty: 'payload'
+// });
 const ctrlResults = require('../controllers/results');
 const ctrlUpdates = require('../controllers/updates');
+const ctrlAuth = require('../controllers/authentication');
 
-// homepage
-// router
-//   .route('/homepage');
 
 // results are locations
 router
   .route('/results')
   .get(ctrlResults.resultsListByAlphabetical)
-  .post(ctrlResults.resultsCreate); /* Working some reason Author me be listed first!!!!????? */
+  .post(/*auth,*/ ctrlResults.resultsCreate); /* Working some reason Author me be listed first!!!!????? */
 
 router
   .route('/results/:resultid')
   .get(ctrlResults.resultsReadOne) /* Working */
-  .put(ctrlResults.resultsUpdateOne) /* Working */
-  .delete(ctrlResults.resultsDeleteOne); /* Working */
+  .put(/*auth,*/ ctrlResults.resultsUpdateOne) /* Working */
+  .delete(/*auth,*/ ctrlResults.resultsDeleteOne); /* Working */
 
 // updates are reviews
 router
@@ -33,5 +35,7 @@ router
   .put(ctrlUpdates.updatesUpdateOne) /* Working */
   .delete(ctrlUpdates.updatesDeleteOne); /* Working */
 
+router.post('/register', ctrlAuth.register);
+router.post('/login', ctrlAuth.login);
 
 module.exports = router;

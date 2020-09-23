@@ -34,6 +34,7 @@ export class ManualUpdateDataService {
 
   public addUpdateByResultId(resultId: string, formData: Update): Promise<Update> {
     const url: string = `${this.apiBaseUrl}/results/${resultId}/updates`;
+    console.log("formdate", formData)
     return this.http
       .post(url, formData)
       .toPromise()

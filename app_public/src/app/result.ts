@@ -17,5 +17,5 @@ export class Update {
     isbn: number;
     lastUpdate: number;
     updateCount: number;
-    updates: object /*?, or string*/
+    updates: Update[] /*?, or string*/
   }

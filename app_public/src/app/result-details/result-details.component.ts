@@ -38,18 +38,21 @@ export class ResultDetailsComponent implements OnInit {
     }
   }
 
+
   public onUpdateSubmit(): void {
     this.formError = '';
+    console.log("update");
     if (this.formIsValid()) {
+      console.log("New Update", this.newUpdate);
       this.manualUpdateDataService.addUpdateByResultId(this.result._id, this.newUpdate)
         .then((update: Update) => {
-          // let updates = this.result.updates.slice(0);
-          // updates.unshift(update);
-          // this.result.updates = updates;
-          // this.resetAndHideUpdateForm();
+          let updates = this.result.updates.slice(0);
+          updates.unshift(update);
+          this.result.updates = updates;
+          this.resetAndHideUpdateForm();
         });
     } else {
-      this.formError = 'Missed reauired field, please try again';
+      this.formError = 'Missed a reauired field, please try again';
     }
   }
 

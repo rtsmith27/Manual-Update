@@ -15,7 +15,7 @@ const updateSchema = new mongoose.Schema({
     },
     votes: {
         type: Number,
-        required: true,
+        // required: true,
         min: 0,
         max: 5
     },
@@ -50,31 +50,6 @@ const resultSchema = new mongoose.Schema({
     updates: [updateSchema]
 });
 
-
-
-
-
-// const locationSchema = new mongoose.Schema({
-//     name: {
-//         type: String,
-//         required: true
-//     },
-//     address: String,
-//     phone: String,
-//     rating: {
-//         type: Number,
-//         'default': 1,
-//         min: 1,
-//         max: 5
-//     },
-//     facilities: [String],
-//     coords: {
-//         type: { type: String },
-//         coordinates: [Number]
-//     },
-//     openingTimes: [openingTimeSchema],
-//     reviews: [reviewSchema]
-// });
 
 mongoose.model('Result', resultSchema);
 // mongoose.model('Update', updateSchema);

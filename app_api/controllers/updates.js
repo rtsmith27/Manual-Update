@@ -191,15 +191,24 @@ const updatesReadOne = (req, res) => {
         .status(404)
         .json({"message": "Result not found"});
     } else {
-      // const {updateCount, chapter, updater, votes, section, updateText, createdOn} = req.body;
+      const { updateCount, chapter, updater, votes, section, updateText, createdOn} = req.body;
       result.updates.push({
-        updateCount: req.body.updateCount,
-        chapter: req.body.chapter,
-        updater: req.body.updater,
-        votes: req.body.votes,
-        section: req.body.section,
-        updateText: req.body.updateText,
-        createdOn: req.body.createdOn
+        updateCount,
+        chapter,
+        updater,
+        votes,
+        section,
+        updateText,
+        createdOn
+      // const {updateCount, chapter, updater, votes, section, updateText, createdOn} = req.body;
+      // result.updates.push({
+      //   updateCount: req.body.updateCount,
+      //   chapter: req.body.chapter,
+      //   updater: req.body.updater,
+      //   votes: req.body.votes,
+      //   section: req.body.section,
+      //   updateText: req.body.updateText,
+      //   createdOn: req.body.createdOn
         // technology
       });
       result.save((err, result) => {
