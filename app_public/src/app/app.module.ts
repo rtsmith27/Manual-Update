@@ -14,7 +14,10 @@ import { ResultspageComponent } from './resultspage/resultspage.component';
 import { HtmlLineBreaksPipe } from './html-line-breaks.pipe';
 import { DetailsPageComponent } from './details-page/details-page.component';
 import { ResultDetailsComponent } from './result-details/result-details.component';
+import { ResultDetailComponent } from './result-detail/result-detail.component';
 // import { UpvoteButtonComponent } from './upvote-button/upvote-button.component';
+
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -27,9 +30,11 @@ import { ResultDetailsComponent } from './result-details/result-details.componen
     HtmlLineBreaksPipe,
     DetailsPageComponent,
     ResultDetailsComponent,
+    ResultDetailComponent,
     // UpvoteButtonComponent
   ],
   imports: [
+    FormsModule,
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,

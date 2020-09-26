@@ -1,203 +1,189 @@
 <!-- This needs to be placed inside of an update!! Its the vote button. -->
 <!-- <upvote-button [itemId]='item?.$key' [userId]='user?.uid'></upvote-button> -->
-<div class="row">
-  <div class="col-12 col-md-6">
-    <p>{{ result.title }}</p>
-    <p>{{ result.author }}</p>
-    <p>{{ result.edition }}</p>
-    <p>{{ result.publisher }}</p>
-    <p>{{ result.isbn }}</p>
-    <!-- <div class="card card-primary">
-      <div class="card-block">
-        <h2 class="card-title">Opening hours</h2>
-        <p class="card-text" *ngFor="let time of location.openingTimes" [ngSwitch]="time.closed">
-          {{ time.days }} :
-          <span *ngSwitchCase="true">Closed</span>
-          <span *ngSwitchDefault>{{ time.opening + " - " + time.closing }}</span>
-        </p>
-      </div>
-    </div> -->
-    <!-- <div class="card card-primary">
-      <div class="card-block">
-        <h2 class="card-title">Facilities</h2>
-        <span *ngFor="let facility of location.facilities" class="badge badge-warning">
-          <i class="fa fa-check"></i>
-          {{facility}}
-        </span>
-      </div>
-    </div> -->
+<div class="row card card-primary">
+    <div class="col-12 col-md-6">
+      <p><label>Title:&nbsp;</label>{{ result.title }}</p>
+      <p><label>Edition:&nbsp;</label>{{ result.edition }}</p>
+      <p><label>Author:&nbsp;</label>{{ result.author }}</p>
+      <p><label>Publisher:&nbsp;</label>{{ result.publisher }}</p>
+      <p><label>ISBN:&nbsp;</label>{{ result.isbn }}</p>
+    </div>
   </div>
-</div>
-<div class="row">
-  <div class="col-12">
-    <div class="card card-primary update-card">
-      <div class="card-block">
-        <button (click)="formVisible=true" class="btn btn-primary float-right">Add update</button>
-        <h2 class="card-title">Manual Update</h2>
-        <div *ngIf="formVisible">
-          <form (ngSubmit)="onUpdateSubmit()"> 
-            <hr>
-            <h4>Add your update</h4>
-            <div *ngIf="formError" class="alert alert-danger" role="alert">
-              {{ formError }}
-            </div>
-            <div class="form-group row">
-              <label for="updater" class="col-sm-2 col-form-label">Updater</label>
-              <div class="col-sm-10">
-                <input [(ngModel)]="newUpdate.updater" id="updater" name="updater" required="required" class="form-control">
+  <div class="row">
+    <div class="col-12">
+      <div class="card card-primary update-card">
+        <div class="card-block">
+          <button (click)="formVisible=true" class="btn btn-primary float-right">Add update</button>
+          <h2 class="card-title">Manual Update</h2>
+          <div *ngIf="formVisible">
+            <form (ngSubmit)="onUpdateSubmit()">
+              <hr>
+              <h4>Add your update</h4>
+              <div *ngIf="formError" class="alert alert-danger" role="alert">
+                {{ formError }}
               </div>
-            </div>
-            <div class="form-group row">
-              <label for="chapter" class="col-sm-2 col-form-label">Chapter</label>
-              <div class="col-sm-10">
-                <input [(ngModel)]="newUpdate.chapter" id="chapter" name="chapter" required="required" class="form-control"> 
+              <div class="form-group row">
+                <label for="updater" class="col-sm-2 col-form-label">Updater</label>
+                <div class="col-sm-10">
+                  <input [(ngModel)]="newUpdate.updater" id="updater" name="updater" required="required"
+                    class="form-control">
+                </div>
               </div>
-            </div>
-            <div class="form-group row">
-              <label for="section" class="col-sm-2 col-form-label">Section</label>
-              <div class="col-sm-10">
-                <input [(ngModel)]="newUpdate.section" id="section" name="section" class="form-control"> 
+              <div class="form-group row">
+                <label for="chapter" class="col-sm-2 col-form-label">Chapter</label>
+                <div class="col-sm-10">
+                  <input [(ngModel)]="newUpdate.chapter" id="chapter" name="chapter" required="required"
+                    class="form-control">
+                </div>
               </div>
-            </div>  
-            <div class="form-group row">
-              <label for="update" class="col-sm-2 col-form-label">Update</label>
-              <div class="col-sm-10">
-                <textarea [(ngModel)]="newUpdate.updateText" name="update" id="update" rows="5" class="form-control"></textarea>
+              <div class="form-group row">
+                <label for="section" class="col-sm-2 col-form-label">Section</label>
+                <div class="col-sm-10">
+                  <input [(ngModel)]="newUpdate.section" id="section" name="section" class="form-control">
+                </div>
               </div>
-            </div>
-            <div class="form-group row">
-              <div class="col-12">
-                <button type="submit" class="btn btn-primary float-right" style="margin-left:15px">Submit update</button>
-                <button (click)="formVisible=false" type="button" class="btn btn-default float-right">Cancel</button>
+              <div class="form-group row">
+                <label for="update" class="col-sm-2 col-form-label">Update</label>
+                <div class="col-sm-10">
+                  <textarea [(ngModel)]="newUpdate.updateText" name="update" id="update" rows="5"
+                    class="form-control"></textarea>
+                </div>
               </div>
-            </div>
-            <hr>
-          </form>
-        </div>
-        <div *ngFor="let update of result.updates" class="row update">
-          <div class="col-12 no-gutters update-header">
-            <!-- <app-rating-stars [rating]="review.rating"></app-rating-stars> -->
-            <label>Updater: </label><span class="updateUpdater">{{ update.updater }}</span><br>
-            <label>chapter: </label><span class="updateUpdater">{{ update.chapter }}</span><br>
-            <label>Update Text: </label><span class="updateUpdater">{{ update.updateText }}</span><br>
-            <small class="updateTimestamp">{{ update.createdOn | date : 'd MMMM yyyy'}}</small>
+              <div class="form-group row">
+                <div class="col-12">
+                  <button type="submit" class="btn btn-primary float-right" style="margin-left:15px">Submit
+                    update</button>
+                  <button (click)="formVisible=false" type="button" class="btn btn-default float-right">Cancel</button>
+                </div>
+              </div>
+              <hr>
+            </form>
           </div>
-          <div class="col-12">
+          <div *ngFor="let update of result.updates" class="row update">
+            <div class="col-12 no-gutters update-header color">
+              <!-- <app-rating-stars [rating]="review.rating"></app-rating-stars> -->
+              <label>Updater: </label><span class="updateUpdater">{{ update.updater }}</span><br>
+              <label>chapter: </label><span class="updateUpdater">{{ update.chapter }}</span><br>
+              <label>Update Text: </label><span class="updateUpdater">{{ update.updateText }}</span><br>
+              <small class="updateTimestamp">{{ update.createdOn | date : 'd MMMM yyyy'}}</small>
+              <hr>
+            </div>
+            <div class="col-12">
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-</div>
-
-<!-- !!!!Below is an accordion list, Add Update and Upvote button needs to be placed inside of the accordion.!!! -->
-<!-- <div class="just-padding">
-
-    <div class="list-group list-group-root card">
   
-      <a href="#item-1" class="list-group-item" data-toggle="collapse">
-        <i class="fas fa-angle-right mr-2"></i>Item 1
-      </a>
-      <div class="list-group collapse" id="item-1">
+  <!-- !!!!Below is an accordion list, Add Update and Upvote button needs to be placed inside of the accordion.!!! -->
+  <!-- <div class="just-padding">
   
-        <a href="#item-1-1" class="list-group-item" data-toggle="collapse">
-          <i class="fas fa-angle-right mr-2"></i>Item 1.1
+      <div class="list-group list-group-root card">
+    
+        <a href="#item-1" class="list-group-item" data-toggle="collapse">
+          <i class="fas fa-angle-right mr-2"></i>Item 1
         </a>
-        <div class="list-group collapse" id="item-1-1">
-          <a href="#" class="list-group-item">Item 1.1.1</a>
-          <a href="#" class="list-group-item">Item 1.1.2</a>
-          <a href="#" class="list-group-item">Item 1.1.3</a>
+        <div class="list-group collapse" id="item-1">
+    
+          <a href="#item-1-1" class="list-group-item" data-toggle="collapse">
+            <i class="fas fa-angle-right mr-2"></i>Item 1.1
+          </a>
+          <div class="list-group collapse" id="item-1-1">
+            <a href="#" class="list-group-item">Item 1.1.1</a>
+            <a href="#" class="list-group-item">Item 1.1.2</a>
+            <a href="#" class="list-group-item">Item 1.1.3</a>
+          </div>
+    
+          <a href="#item-1-2" class="list-group-item" data-toggle="collapse">
+            <i class="fas fa-angle-right mr-2"></i>Item 1.2
+          </a>
+          <div class="list-group collapse" id="item-1-2">
+            <a href="#" class="list-group-item">Item 1.2.1</a>
+            <a href="#" class="list-group-item">Item 1.2.2</a>
+            <a href="#" class="list-group-item">Item 1.2.3</a>
+          </div>
+    
+          <a href="#item-1-3" class="list-group-item" data-toggle="collapse">
+            <i class="fas fa-angle-right mr-2"></i>Item 1.3
+          </a>
+          <div class="list-group collapse" id="item-1-3">
+            <a href="#" class="list-group-item">Item 1.3.1</a>
+            <a href="#" class="list-group-item">Item 1.3.2</a>
+            <a href="#" class="list-group-item">Item 1.3.3</a>
+          </div>
+    
         </div>
-  
-        <a href="#item-1-2" class="list-group-item" data-toggle="collapse">
-          <i class="fas fa-angle-right mr-2"></i>Item 1.2
+    
+        <a href="#item-2" class="list-group-item" data-toggle="collapse">
+          <i class="fas fa-angle-right mr-2"></i>Item 2
         </a>
-        <div class="list-group collapse" id="item-1-2">
-          <a href="#" class="list-group-item">Item 1.2.1</a>
-          <a href="#" class="list-group-item">Item 1.2.2</a>
-          <a href="#" class="list-group-item">Item 1.2.3</a>
+        <div class="list-group collapse" id="item-2">
+    
+          <a href="#item-2-1" class="list-group-item" data-toggle="collapse">
+            <i class="fas fa-angle-right mr-2"></i>Item 2.1
+          </a>
+          <div class="list-group collapse" id="item-2-1">
+            <a href="#" class="list-group-item">Item 2.1.1</a>
+            <a href="#" class="list-group-item">Item 2.1.2</a>
+            <a href="#" class="list-group-item">Item 2.1.3</a>
+          </div>
+    
+          <a href="#item-2-2" class="list-group-item" data-toggle="collapse">
+            <i class="fas fa-angle-right mr-2"></i>Item 2.2
+          </a>
+          <div class="list-group collapse" id="item-2-2">
+            <a href="#" class="list-group-item">Item 2.2.1</a>
+            <a href="#" class="list-group-item">Item 2.2.2</a>
+            <a href="#" class="list-group-item">Item 2.2.3</a>
+          </div>
+    
+          <a href="#item-2-3" class="list-group-item" data-toggle="collapse">
+            <i class="fas fa-angle-right mr-2"></i>Item 2.3
+          </a>
+          <div class="list-group collapse" id="item-2-3">
+            <a href="#" class="list-group-item">Item 2.3.1</a>
+            <a href="#" class="list-group-item">Item 2.3.2</a>
+            <a href="#" class="list-group-item">Item 2.3.3</a>
+          </div>
+    
         </div>
-  
-        <a href="#item-1-3" class="list-group-item" data-toggle="collapse">
-          <i class="fas fa-angle-right mr-2"></i>Item 1.3
+    
+    
+        <a href="#item-3" class="list-group-item" data-toggle="collapse">
+          <i class="fas fa-angle-right mr-2"></i>Item 3
         </a>
-        <div class="list-group collapse" id="item-1-3">
-          <a href="#" class="list-group-item">Item 1.3.1</a>
-          <a href="#" class="list-group-item">Item 1.3.2</a>
-          <a href="#" class="list-group-item">Item 1.3.3</a>
+        <div class="list-group collapse" id="item-3">
+    
+          <a href="#item-3-1" class="list-group-item" data-toggle="collapse">
+            <i class="fas fa-angle-right mr-2"></i>Item 3.1
+          </a>
+          <div class="list-group collapse" id="item-3-1">
+            <a href="#" class="list-group-item">Item 3.1.1</a>
+            <a href="#" class="list-group-item">Item 3.1.2</a>
+            <a href="#" class="list-group-item">Item 3.1.3</a>
+          </div>
+    
+          <a href="#item-3-2" class="list-group-item" data-toggle="collapse">
+            <i class="fas fa-angle-right mr-2"></i>Item 3.2
+          </a>
+          <div class="list-group collapse" id="item-3-2">
+            <a href="#" class="list-group-item">Item 3.2.1</a>
+            <a href="#" class="list-group-item">Item 3.2.2</a>
+            <a href="#" class="list-group-item">Item 3.2.3</a>
+          </div>
+    
+          <a href="#item-3-3" class="list-group-item" data-toggle="collapse">
+            <i class="fas fa-angle-right mr-2"></i>Item 3.3
+          </a>
+          <div class="list-group collapse" id="item-3-3">
+            <a href="#" class="list-group-item">Item 3.3.1</a>
+            <a href="#" class="list-group-item">Item 3.3.2</a>
+            <a href="#" class="list-group-item">Item 3.3.3</a>
+          </div>
+    
         </div>
-  
+    
       </div>
-  
-      <a href="#item-2" class="list-group-item" data-toggle="collapse">
-        <i class="fas fa-angle-right mr-2"></i>Item 2
-      </a>
-      <div class="list-group collapse" id="item-2">
-  
-        <a href="#item-2-1" class="list-group-item" data-toggle="collapse">
-          <i class="fas fa-angle-right mr-2"></i>Item 2.1
-        </a>
-        <div class="list-group collapse" id="item-2-1">
-          <a href="#" class="list-group-item">Item 2.1.1</a>
-          <a href="#" class="list-group-item">Item 2.1.2</a>
-          <a href="#" class="list-group-item">Item 2.1.3</a>
-        </div>
-  
-        <a href="#item-2-2" class="list-group-item" data-toggle="collapse">
-          <i class="fas fa-angle-right mr-2"></i>Item 2.2
-        </a>
-        <div class="list-group collapse" id="item-2-2">
-          <a href="#" class="list-group-item">Item 2.2.1</a>
-          <a href="#" class="list-group-item">Item 2.2.2</a>
-          <a href="#" class="list-group-item">Item 2.2.3</a>
-        </div>
-  
-        <a href="#item-2-3" class="list-group-item" data-toggle="collapse">
-          <i class="fas fa-angle-right mr-2"></i>Item 2.3
-        </a>
-        <div class="list-group collapse" id="item-2-3">
-          <a href="#" class="list-group-item">Item 2.3.1</a>
-          <a href="#" class="list-group-item">Item 2.3.2</a>
-          <a href="#" class="list-group-item">Item 2.3.3</a>
-        </div>
-  
-      </div>
-  
-  
-      <a href="#item-3" class="list-group-item" data-toggle="collapse">
-        <i class="fas fa-angle-right mr-2"></i>Item 3
-      </a>
-      <div class="list-group collapse" id="item-3">
-  
-        <a href="#item-3-1" class="list-group-item" data-toggle="collapse">
-          <i class="fas fa-angle-right mr-2"></i>Item 3.1
-        </a>
-        <div class="list-group collapse" id="item-3-1">
-          <a href="#" class="list-group-item">Item 3.1.1</a>
-          <a href="#" class="list-group-item">Item 3.1.2</a>
-          <a href="#" class="list-group-item">Item 3.1.3</a>
-        </div>
-  
-        <a href="#item-3-2" class="list-group-item" data-toggle="collapse">
-          <i class="fas fa-angle-right mr-2"></i>Item 3.2
-        </a>
-        <div class="list-group collapse" id="item-3-2">
-          <a href="#" class="list-group-item">Item 3.2.1</a>
-          <a href="#" class="list-group-item">Item 3.2.2</a>
-          <a href="#" class="list-group-item">Item 3.2.3</a>
-        </div>
-  
-        <a href="#item-3-3" class="list-group-item" data-toggle="collapse">
-          <i class="fas fa-angle-right mr-2"></i>Item 3.3
-        </a>
-        <div class="list-group collapse" id="item-3-3">
-          <a href="#" class="list-group-item">Item 3.3.1</a>
-          <a href="#" class="list-group-item">Item 3.3.2</a>
-          <a href="#" class="list-group-item">Item 3.3.3</a>
-        </div>
-  
-      </div>
-  
-    </div>
-  
-  </div> -->
+    
+    </div> -->

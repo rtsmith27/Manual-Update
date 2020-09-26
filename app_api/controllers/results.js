@@ -3,7 +3,8 @@ const Res = mongoose.model('Result');
 
 const resultsListByAlphabetical = (req, res) => {  //need to find a REST API to req, res in alphabetical order if possible//
   try{
-    Res.find({}).exec(
+    Res.find({$or:[{"title":/.*manning*./i},{"author":/.*insertHere*./i},{"publisher":/.*manning*./i},{"isbn":/.*insertHere*./i}]}).exec(
+    // Res.find({$text:{$search:"Angular"}}).exec(
       (err, bookResults) => {
         console.log('entered result list', bookResults);
         const results = bookResults.map(result => {
@@ -13,7 +14,8 @@ const resultsListByAlphabetical = (req, res) => {  //need to find a REST API to 
             edition: result.edition,
             author: result.author,
             publisher: result.publisher,
-            isbn: result.isbn
+            isbn: result.isbn,
+            updater: result.updater
           }
         });
         res

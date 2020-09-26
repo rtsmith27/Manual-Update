@@ -15,6 +15,7 @@ const routes: Routes = [
 },
 {
   path: 'Results',
+  // component: ResultspageComponent
   component: ResultspageComponent
 },
 {

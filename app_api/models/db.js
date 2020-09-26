@@ -1,13 +1,13 @@
 const mongoose = require('mongoose');
 const readLine = require('readline');
 
-// const MongoClient = require('mongodb').MongoClient;
-// const assert = require('assert');
+const MongoClient = require('mongodb').MongoClient;
+const assert = require('assert');
 
-// /*
-//  * Requires the MongoDB Node.js Driver
-//  * https://mongodb.github.io/node-mongodb-native
-//  */
+/*
+ * Requires the MongoDB Node.js Driver
+ * https://mongodb.github.io/node-mongodb-native
+ */
 
 // const agg = [
 //   {
@@ -21,6 +21,7 @@ const readLine = require('readline');
 //     }
 //   }
 // ];
+// {$or:[{"title":/.*python*./i},{"edition":/.*john*./i},{"isbn":/.*john*./i} ]}
 
 // MongoClient.connect(
 //   'mongodb://localhost:27017/?readPreference=primary&appname=MongoDB%20Compass%20Community&ssl=false',
@@ -28,7 +29,8 @@ const readLine = require('readline');
 //   function(connectErr, client) {
 //     assert.equal(null, connectErr);
 //     const coll = client.db('manualUpdate').collection('results');
-//     coll.aggregate(agg, (cmdErr, result) => {
+//     searchString = "{$or:[{\"title\":/.*" + this.userQueryString + "*./i},{\"edition\":/.*" + this.userQueryString + "*./i},{\"isbn\":/.*john*./i} ]}"
+//     coll.find(searchString)//.aggregate(agg, (cmdErr, result) => {
 //       assert.equal(null, cmdErr);
 //     });
 //     client.close();

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+// import { mongo? } from 'db.js'
 
 @Component({
   selector: 'app-homepage',
@@ -18,5 +19,19 @@ export class HomepageComponent implements OnInit {
       strapline: 'Need an update, use an update. Have an update, leave an update. '
     }
   };
+
+public mongoSearch(): void {
+  // get userQueryString from html form input
+
+  // connect to mongo db
+  // results[] = mongo.connect(this.userQueryString)
+
+  // send search variable to mongo find
+
+  // parse results
+
+  // return to html
+}
+
 
 }

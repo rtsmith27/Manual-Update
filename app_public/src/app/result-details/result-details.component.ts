@@ -25,11 +25,6 @@ export class ResultDetailsComponent implements OnInit {
   public formVisible: boolean = false;
   public formError: string;
 
-  constructor(private manualUpdateDataService: ManualUpdateDataService) { }
-
-  ngOnInit() {
-  }
-
   private formIsValid(): boolean {
     if (this.newUpdate.updater && this.newUpdate.chapter && this.newUpdate.section && this.newUpdate.updateText) {
       return true;
@@ -38,22 +33,25 @@ export class ResultDetailsComponent implements OnInit {
     }
   }
 
+  // public thisisatest(): void {
+  //   console.log("thisisatest");
+  // }
 
   public onUpdateSubmit(): void {
-    this.formError = '';
-    console.log("update");
-    if (this.formIsValid()) {
-      console.log("New Update", this.newUpdate);
-      this.manualUpdateDataService.addUpdateByResultId(this.result._id, this.newUpdate)
-        .then((update: Update) => {
-          let updates = this.result.updates.slice(0);
-          updates.unshift(update);
-          this.result.updates = updates;
-          this.resetAndHideUpdateForm();
-        });
-    } else {
-      this.formError = 'Missed a reauired field, please try again';
-    }
+    console.log("result id", this.result._id);
+      this.formError = '';      
+      if (this.formIsValid()) {
+        // console.log("New Update", this.newUpdate);
+        this.manualUpdateDataService.addUpdateByResultId(this.result._id, this.newUpdate)
+          .then((update: Update) => {
+            let updates = this.result.updates.slice(0);
+            updates.unshift(update);
+            this.result.updates = updates;
+            this.resetAndHideUpdateForm();
+          });
+      } else {
+        this.formError = 'Missed a reauired field, please try again';
+      }
   }
 
   private resetAndHideUpdateForm(): void {
@@ -63,6 +61,12 @@ export class ResultDetailsComponent implements OnInit {
     this.newUpdate.section = '';
     this.newUpdate.updateText = '';
   }
+
+  constructor(private manualUpdateDataService: ManualUpdateDataService) { }
+
+  ngOnInit() {
+  }
+
 }
 
 

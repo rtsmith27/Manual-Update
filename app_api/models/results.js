@@ -36,14 +36,14 @@ const updateSchema = new mongoose.Schema({
 const resultSchema = new mongoose.Schema({
     title: {
         type: String,
-        required: true
+        // required: true
     },    
     edition: String,
     author: [String],
     publisher: String,
     isbn: {  // will do isbn length validation in agular 
-        type: Number,
-        required: true
+        type: String,
+        // required: true
     },  
     lastUpdate: String,
     updateCount: Number,

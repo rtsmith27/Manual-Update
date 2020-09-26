@@ -14,7 +14,7 @@ export class Update {
     edition: string;
     author: string[];
     publisher: string;
-    isbn: number;
+    isbn: string;
     lastUpdate: number;
     updateCount: number;
     updates: Update[] /*?, or string*/
