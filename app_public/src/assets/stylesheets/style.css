@@ -39,8 +39,8 @@ legend {
   border-color: #a2ced3;
   margin-bottom: 0.5rem;
 }
-/* 
-.color :nth-child(odd) {
+
+/* .color :nth-child(odd) {
   background-color: #83ec934f ;
 }
 .color :nth-child(even) {
@@ -177,4 +177,22 @@ body {
 
 .text-center {
   color: #f1f1f1;
+}
+
+hr.style18 { 
+  height: 30px; 
+  border-style: solid; 
+  border-color: #8c8b8b; 
+  border-width: 1px 0 0 0; 
+  border-radius: 20px; 
+} 
+hr.style18:before { 
+  display: block; 
+  content: ""; 
+  height: 30px; 
+  margin-top: -31px; 
+  border-style: solid; 
+  border-color: #8c8b8b; 
+  border-width: 0 0 1px 0; 
+  border-radius: 20px; 
 }

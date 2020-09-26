@@ -15,7 +15,7 @@ const resultsListByAlphabetical = (req, res) => {  //need to find a REST API to 
             author: result.author,
             publisher: result.publisher,
             isbn: result.isbn,
-            updater: result.updater
+            // updater: result.updater
           }
         });
         res

@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing/app-routing.module';
 
@@ -14,10 +15,8 @@ import { ResultspageComponent } from './resultspage/resultspage.component';
 import { HtmlLineBreaksPipe } from './html-line-breaks.pipe';
 import { DetailsPageComponent } from './details-page/details-page.component';
 import { ResultDetailsComponent } from './result-details/result-details.component';
-import { ResultDetailComponent } from './result-detail/result-detail.component';
 // import { UpvoteButtonComponent } from './upvote-button/upvote-button.component';
 
-import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -30,7 +29,6 @@ import { FormsModule } from '@angular/forms';
     HtmlLineBreaksPipe,
     DetailsPageComponent,
     ResultDetailsComponent,
-    ResultDetailComponent,
     // UpvoteButtonComponent
   ],
   imports: [
