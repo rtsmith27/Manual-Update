@@ -1,0 +1,30 @@
+.votebox {
+  height: 120px;
+  width: 120px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  text-align: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  font-size: 2em;
+}
+
+.votebox .vote {
+  cursor: pointer;
+}
+
+.votebox .vote:hover {
+  color: orange;
+}
+
+.votebox .active.up {
+  color: green;
+}
+
+.votebox .active.down {
+  color: red;
+}
+/*# sourceMappingURL=upvote-button.component.css.map */

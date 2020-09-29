@@ -15,6 +15,8 @@ import { ResultspageComponent } from './resultspage/resultspage.component';
 import { HtmlLineBreaksPipe } from './html-line-breaks.pipe';
 import { DetailsPageComponent } from './details-page/details-page.component';
 import { ResultDetailsComponent } from './result-details/result-details.component';
+import { AddManualPageComponent } from './add-manual-page/add-manual-page.component';
+import { ContactPageComponent } from './contact-page/contact-page.component';
 // import { UpvoteButtonComponent } from './upvote-button/upvote-button.component';
 
 
@@ -29,6 +31,8 @@ import { ResultDetailsComponent } from './result-details/result-details.componen
     HtmlLineBreaksPipe,
     DetailsPageComponent,
     ResultDetailsComponent,
+    AddManualPageComponent,
+    ContactPageComponent,
     // UpvoteButtonComponent
   ],
   imports: [

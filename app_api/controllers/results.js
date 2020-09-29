@@ -3,7 +3,11 @@ const Res = mongoose.model('Result');
 
 const resultsListByAlphabetical = (req, res) => {  //need to find a REST API to req, res in alphabetical order if possible//
   try{
-    Res.find({$or:[{"title":/.*manning*./i},{"author":/.*insertHere*./i},{"publisher":/.*manning*./i},{"isbn":/.*insertHere*./i}]}).exec(
+    console.log("searchstring:",req.params.searchstring);
+    //Res.find({$or:[{"title":/.*+req.params.searchstring+*./i},{"author":/.*insertHere*./i},{"publisher":/.*manning*./i},{"isbn":/.**./i}]}).exec(
+    //searchString = "{$or:[{\"title\":/.*" + this.userQueryString + "*./i},{\"edition\":/.*" + this.userQueryString + "*./i},{\"isbn\":/.*john*./i} ]}"
+    //Res.find({"title": req.params.searchstring}).exec(
+    Res.find({$or:[{"title": new RegExp(req.params.searchstring, "gi")},{"author":new RegExp(req.params.searchstring, "gi")},{"publisher":new RegExp(req.params.searchstring, "gi")}]}).exec(
     // Res.find({$text:{$search:"Angular"}}).exec(
       (err, bookResults) => {
         console.log('entered result list', bookResults);

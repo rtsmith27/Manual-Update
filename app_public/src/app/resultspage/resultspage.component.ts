@@ -14,7 +14,7 @@ export class ResultspageComponent implements OnInit {
 
   public pageContent = {
     header: {
-      title: 'Manual Update:',
+      title: '',
       strapline: 'Need an update, use an update. Have an update, leave an update. '
     }
   };

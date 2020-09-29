@@ -1,34 +1,30 @@
+<html>
 
-
-<!-- <body>
-  <app-page-header [content]="pageContent.header"></app-page-header> -->
-  <!-- <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> -->
-  <!-- <div class="container, hero">
-    <div id="content"> -->
-    <section class="bgimage">
-      <div class="container-fluid">
-        <div class="relative">
-          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12"></div>
-            <h2>Have an update leave an update, need an update use an update.</h2>
-            <h4>Join the community, become an Updater.</h4>
-           <form (ngSubmit)="mongoSearch()">
-              <div class="input-group">
-                <div class="d-flex justify-content-lg-center">
-                <input type='text' id='userQueryString' class="form-control search-form" placeholder="Find your update">
-                  <span class="input-group-btn" style="width:200px">
-                    <button id="search-this"type="button" class="pull-right btn btn-default search-btn">
-                      <i class="fa fa-book-open"></i>
-                    </button>
-                  </span>
-                </div>
-              </div>
-            </form>
-          </div>
+<body>
+  <section class="bgimage">
+    <div class="container-flex">
+      <div class="relative">
+        <div class="col-12"></div>
+        <h2 class="text-responsive">Have an update leave an update, need an update use an update.</h2>
+        <h4 class="text-responsive">Join the community, become an Updater.</h4>
       </div>
-    </section>
-        <!-- <p class="text-center">Some centered text</p> -->
-        
-        
-    <!-- </div> -->
-  <!-- </div> -->
-<!-- </body> -->
+      <div class="container">
+        <div class="col-lg-6" class="search">
+          <form  (ngSubmit)="mongoSearch()">
+            <div class="input-group">
+              <!-- <div class="d-flex"> -->
+              <input type='text' [(ngModel)]="searchstring" id='searchstring' name='searchstring' class="form-control search-form" placeholder="Find your update">
+              <span class="input-group-btn">
+                <button type="submit" class="search-btn"><i class="fa fa-book-open"></i></button>
+              </span>
+              <!-- </div> -->
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+</body>
+
+</html>
+<!-- <p class="text-center">Some centered text</p> -->

@@ -12,8 +12,10 @@ const ctrlAuth = require('../controllers/authentication');
 
 // results are locations
 router
+  .route('/results/:searchstring')
+  .get(ctrlResults.resultsListByAlphabetical);
+router
   .route('/results')
-  .get(ctrlResults.resultsListByAlphabetical)
   .post(/*auth,*/ ctrlResults.resultsCreate); /* Working some reason Author me be listed first!!!!????? */
 
 router

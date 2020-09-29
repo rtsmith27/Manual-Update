@@ -1,0 +1,47 @@
+<app-page-header [content]="pageContent.header"></app-page-header>
+<!-- <div class="row">
+    <div class="col-12 col-lg-8" [innerHTML]="pageContent.content | htmlLineBreaks"></div>
+</div> -->
+
+
+<section class="section">
+    <!-- <iframe name="dummyframe" id="dummyframe" style="display: none;"></iframe> -->
+    <div class="container">
+        <div class="col-md-6">
+            <form #messageForm="ngForm">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input required minlength="5" ngModel name="name" type="text" #name="ngModel" class="form-control"
+                        id="name">
+                    <div class="alert alert-danger" *ngIf="name.touched && !name.valid">
+                        <div *ngIf="name.errors.required">Name is required.</div>
+                        <div *ngIf="name.errors.minlength">Name is minimum {{ name.errors.minlength.requiredLength }}
+                            character.</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input required ngModel name="email" type="text" #email="ngModel" class="form-control" id="email">
+                    Email is required.
+                </div>
+                <div class="alert alert-danger" *ngIf="email.touched && email.errors?.email">
+                    Enter a valid email address.
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea required ngModel #message="ngModel" name="message" id="message" cols="20" rows='5'
+                        class="form-control"></textarea>
+                    <div class="alert alert-danger" *ngIf="message.touched && !message.valid">
+                        Message is required.
+                    </div>
+                </div>
+                <div>
+                    <input type="button" onclick="return confirm('Your message has been sent.')"
+                        class="btn btn-lg btn-success" value="Send">
+                    <input type="reset" class="btn btn-lg btn-outline-secondary float-right" value="Clear">
+                </div>
+            </form>
+        </div>
+    </div>
+</section>

@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-// import { mongo? } from 'db.js'
+import { Component, OnInit, Input } from '@angular/core';
+import { ManualUpdateDataService} from '../manual-update-data.service';
+import { Router } from '@angular/router';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-homepage',
@@ -7,8 +9,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./homepage.component.css']
 })
 export class HomepageComponent implements OnInit {
-
-  constructor() { }
+  searchstring: string;
+  constructor(private manualDataService: ManualUpdateDataService, private router: Router) { }
 
   ngOnInit() {
   }
@@ -21,16 +23,10 @@ export class HomepageComponent implements OnInit {
   };
 
 public mongoSearch(): void {
-  // get userQueryString from html form input
+  console.log("value", this.searchstring);
+  this.manualDataService.getSearchResults(this.searchstring);
+  this.router.navigateByUrl('Results');
 
-  // connect to mongo db
-  // results[] = mongo.connect(this.userQueryString)
-
-  // send search variable to mongo find
-
-  // parse results
-
-  // return to html
 }
 
 

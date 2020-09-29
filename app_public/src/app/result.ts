@@ -19,3 +19,9 @@ export class Update {
     updateCount: number;
     updates: Update[] /*?, or string*/
   }
+
+  export class Contact {
+    name: string;
+    email: string;
+    message: string
+  }

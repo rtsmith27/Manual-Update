@@ -10,11 +10,20 @@ export class ManualUpdateDataService {
   constructor(private http: HttpClient) { }
 
   private apiBaseUrl = 'http://localhost:3000/api';
+  public search: string;
 
-  // ?Do I need to use this section to get my Results?
   public getResults(): Promise<Result[]> {
-    // const maxDistance: number = 20000;
-    const url: string = `${this.apiBaseUrl}/results`;
+    const url: string = `${this.apiBaseUrl}/results/${this.search}`;
+    return this.http
+      .get(url)
+      .toPromise()
+      .then(response => response as Result[])
+      .catch(this.handleError);
+  }
+
+  public getSearchResults(searchstring: string): Promise<Result[]> {
+    const url: string = `${this.apiBaseUrl}/results/${searchstring}`;
+    this.search=searchstring;
     return this.http
       .get(url)
       .toPromise()

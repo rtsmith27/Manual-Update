@@ -1,7 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Result, Update } from '../result' /*'../result-list/result-list.component'*/;
 import { ManualUpdateDataService } from '../manual-update-data.service'
-// import * as $ from "jquery";
 
 @Component({
   selector: 'app-result-details',
@@ -33,15 +32,10 @@ export class ResultDetailsComponent implements OnInit {
     }
   }
 
-  // public thisisatest(): void {
-  //   console.log("thisisatest");
-  // }
-
   public onUpdateSubmit(): void {
     console.log("result id", this.result._id);
       this.formError = '';      
       if (this.formIsValid()) {
-        // console.log("New Update", this.newUpdate);
         this.manualUpdateDataService.addUpdateByResultId(this.result._id, this.newUpdate)
           .then((update: Update) => {
             let updates = this.result.updates.slice(0);
@@ -60,6 +54,7 @@ export class ResultDetailsComponent implements OnInit {
     this.newUpdate.chapter = '';
     this.newUpdate.section = '';
     this.newUpdate.updateText = '';
+    // this.newUpdate.createdOn = '';
   }
 
   constructor(private manualUpdateDataService: ManualUpdateDataService) { }
@@ -68,14 +63,3 @@ export class ResultDetailsComponent implements OnInit {
   }
 
 }
-
-
-// $(function() {
-
-//   $('.list-group-item').on('click', function() {
-//     $('.fas', this)
-//       .toggleClass('fa-angle-right')
-//       .toggleClass('fa-angle-down');
-//   });
-
-// });

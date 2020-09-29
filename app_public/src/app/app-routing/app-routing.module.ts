@@ -7,6 +7,8 @@ import { AboutComponent } from '../about/about.component';
 import { HomepageComponent } from '../homepage/homepage.component';
 import { DetailsPageComponent } from '../details-page/details-page.component';
 import { ResultspageComponent } from '../resultspage/resultspage.component'
+import { AddManualPageComponent } from '../add-manual-page/add-manual-page.component';
+import { ContactPageComponent } from '../contact-page/contact-page.component';
 
 const routes: Routes = [
 {
@@ -18,8 +20,16 @@ const routes: Routes = [
   component: ResultspageComponent
 },
 {
+  path: 'Add_Manual',
+  component: AddManualPageComponent
+},
+{
   path: 'about',
   component: AboutComponent
+},
+{
+  path: 'Contact',
+  component: ContactPageComponent
 },
 {
   path: 'result/:resultId',
