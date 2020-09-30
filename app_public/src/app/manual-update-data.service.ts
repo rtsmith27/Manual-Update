@@ -13,7 +13,7 @@ export class ManualUpdateDataService {
   public search: string;
 
   public getResults(): Promise<Result[]> {
-    const url: string = `${this.apiBaseUrl}/results/${this.search}`;
+    const url: string = `${this.apiBaseUrl}/results/search/${this.search}`;
     return this.http
       .get(url)
       .toPromise()
@@ -22,7 +22,7 @@ export class ManualUpdateDataService {
   }
 
   public getSearchResults(searchstring: string): Promise<Result[]> {
-    const url: string = `${this.apiBaseUrl}/results/${searchstring}`;
+    const url: string = `${this.apiBaseUrl}/results/search/${searchstring}`;
     this.search=searchstring;
     return this.http
       .get(url)
@@ -33,6 +33,7 @@ export class ManualUpdateDataService {
 
   public getResultById(resultId: string): Promise<Result> {
     const url: string = `${this.apiBaseUrl}/results/${resultId}`;
+    console.log("result_id", resultId);
     return this.http
       .get(url)
       .toPromise()

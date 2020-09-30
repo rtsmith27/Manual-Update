@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-// import { NgForm } from '@angular/forms';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-contact-page',
@@ -8,7 +8,15 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class ContactPageComponent implements OnInit {
 
-  // public newContact: Contact = {
+
+  // onSubmit() {
+  //   if(this.myform.valid) {
+  //     console.log("Contact Submitted.", this.myform.value);
+  //     this.myform.reset();
+  //   }
+  // }
+
+  // myform:  = {
   //   name: '',
   //   email: '',
   //   message: ''

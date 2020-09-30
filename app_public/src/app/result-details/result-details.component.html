@@ -1,72 +1,78 @@
 <!-- This needs to be placed inside of an update!! Its the vote button. -->
 <!-- <upvote-button [itemId]='item?.$key' [userId]='user?.uid'></upvote-button> -->
-<section class="stick">
-<div class="row card card-primary">
-  <div class="col-12 col-md-6">
-    <p><label>Title:&nbsp;</label>{{ result.title }}</p>
-    <p><label>Edition:&nbsp;</label>{{ result.edition }}</p>
-    <p><label>Author:&nbsp;</label>{{ result.author }}</p>
-    <p><label>Publisher:&nbsp;</label>{{ result.publisher }}</p>
-    <p><label>ISBN:&nbsp;</label>{{ result.isbn }}</p>
-    <!-- <p><label>Created On:&nbsp;</label>{{ result.createdon }}</p> -->
-  </div>
-  <div>
-    <button (click)="formVisible=true" class="btn btn-primary float-right">Add update</button>
-    <h2 class="card-title"></h2>
-    <div *ngIf="formVisible">
-      <form (ngSubmit)="onUpdateSubmit()">
-        <hr>
-        <h4>Add your update</h4>
-        <div *ngIf="formError" class="alert alert-danger" role="alert">
-          {{ formError }}
-        </div>
-        <div class="form-group row">
-          <label for="updater" class="col-sm-2 col-form-label">Updater:</label>
-          <div class="col-sm-10">
-            <input [(ngModel)]="newUpdate.updater" id="updater" name="updater" required="required" class="form-control">
-          </div>
-        </div>
-        <div class="form-group row">
-          <label for="chapter" class="col-sm-2 col-form-label">Chapter:</label>
-          <div class="col-sm-10">
-            <input [(ngModel)]="newUpdate.chapter" id="chapter" name="chapter" required="required" class="form-control">
-          </div>
-        </div>
-        <div class="form-group row">
-          <label for="section" class="col-sm-2 col-form-label">Section:</label>
-          <div class="col-sm-10">
-            <input [(ngModel)]="newUpdate.section" id="section" name="section" class="form-control">
-          </div>
-        </div>
-        <div class="form-group row">
-          <label for="update" class="col-sm-2 col-form-label">Update:</label>
-          <div class="col-sm-10">
-            <textarea [(ngModel)]="newUpdate.updateText" name="update" id="update" rows="5"
-              class="form-control"></textarea>
-          </div>
-        </div>
-        <div class="form-group row">
-          <div class="col-12">
-            <button type="submit" class="btn btn-primary float-right" style="margin-left:15px">Submit
-              update</button>
-            <button (click)="formVisible=false" type="button" class="btn btn-default float-right">Cancel</button>
-          </div>
-        </div>
-        <!-- <hr> -->
-      </form>
+<section class="stick ">
+  <div class="card mainCard">
+    <div class="">
+      <p><label>Title:&nbsp;&nbsp;</label>{{ result.title }}</p>
+      <p><label>Edition:&nbsp;&nbsp;</label>{{ result.edition }}</p>
+      <p><label>Author:&nbsp;&nbsp;</label>{{ result.author }}</p>
+      <p><label>Publisher:&nbsp;&nbsp;</label>{{ result.publisher }}</p>
+      <p><label>ISBN:&nbsp;&nbsp;</label>{{ result.isbn }}</p>
+      <!-- <p><label>Created On:&nbsp;&nbsp;</label>{{ result.createdon }}</p> -->
     </div>
-  </div>
-</div>
-</section>
-<div class="card" *ngFor="let update of result.updates">
-  <div class="card-block">
-    <div class="col-12">
-      <div class="update">
-        <label>Updater: </label><span class="updateUpdater">{{ update.updater }}</span><br>
-        <label>chapter: </label><span class="updateUpdater">{{ update.chapter }}</span><br>
-        <label>Section: </label><span class="updateUpdater">{{ update.section }}</span><br>
-        <label>Updated On: </label><span class="updateUpdater">{{ update.createdOn | date : 'd MMMM yyyy'}}</span><br>
-        <label>Update Text: </label><span class="updateUpdater">{{ update.updateText }}</span>
+    <div>
+      <button (click)="formVisible=true" class="btn btn-primary float-right">Add update</button>
+      <h2 class="card-title"></h2>
+      <div *ngIf="formVisible">
+        <form (ngSubmit)="onUpdateSubmit()">
+          <hr>
+          <h4 class="text-center addUpdate">Add your update</h4>
+          <div *ngIf="formError" class="alert alert-danger" role="alert">
+            {{ formError }}
+          </div>
+          <div class="form-group row">
+            <label for="updater" class="col-sm-2 ">Updater:</label>
+            <div class="col-sm-10">
+              <input [(ngModel)]="newUpdate.updater" id="updater" name="updater" required="required"
+                class="form-control">
+            </div>
+          </div>
+          <div class="form-group row form-inline">
+            <label for="chapter" class="col-sm-2 col-form-label">Chapter:</label>
+            <div class="col-sm-2">
+              <input [(ngModel)]="newUpdate.chapter" id="chapter" name="chapter" required="required"
+                class="form-control">
+            </div>
+          </div>
+          <div class="form-group row form-inline">
+            <label for="section" class="col-sm-2 col-form-label">Section:</label>
+            <div class="col-sm-2">
+              <input [(ngModel)]="newUpdate.section" id="section" name="section" class="form-control">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="update" class="col-sm-2 col-form-label">Update:</label>
+            <div class="col-sm-10">
+              <textarea [(ngModel)]="newUpdate.updateText" name="update" id="update" rows="3"
+                class="form-control"></textarea>
+            </div>
+          </div>
+          <div class="form-group row">
+            <div class="col-12">
+              <button type="submit" class="btn btn-primary float-right" style="margin-left:15px">Submit
+                update</button>
+              <button (click)="formVisible=false" type="button" class="btn btn-default float-right">Cancel</button>
+            </div>
+          </div>
+          <!-- <hr> -->
+        </form>
       </div>
     </div>
   </div>
+</section>
+<div class="extra-card">
+  <div *ngFor="let update of result.updates">
+    <div class="card card-block updateCard">
+      <div class="col-12">
+        <div class="update">
+          <label>Chapter:&nbsp;&nbsp;</label><span class="updateUpdater">{{ update.chapter }}</span>
+          <span class="badge badge-warning float-right updateUpdater"><label>Updater:&nbsp;&nbsp;</label>{{ update.updater }}</span><br>
+          <label>Section:&nbsp;&nbsp;</label><span class="updateUpdater">{{ update.section }}</span><br>
+          <!-- <label>Updated On:&nbsp;&nbsp;</label><span class="updateUpdater">{{ update.createdOn | date : 'd MMMM yyyy'}}</span><br> -->
+          <label>Update Text:&nbsp;&nbsp;</label><span class="updateUpdater">{{ update.updateText }}</span>
+        </div>
+      </div>
+    </div>
+    <br>
+  </div>
+</div>

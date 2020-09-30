@@ -1,13 +1,70 @@
 <app-page-header [content]="pageContent.header"></app-page-header>
-<div class="row">
-    <!-- <div class="col-12 col-lg-8" [innerHTML]="pageContent.content | htmlLineBreaks"></div> -->
-</div>
 
-<div class="container">
-    <div class="row">
-        <div class="col-xl-8 offset-xl-2 py-5">
-            <h2>Please fill out the form to request us to add a new manual or textbook. Within 24hrs you should see your request added.</h2>
-            <form></form>
+<!-- <div class="col-12 col-lg-8" [innerHTML]="pageContent.content | htmlLineBreaks"></div> -->
+
+<!-- <div class="container"> -->
+<div class="row">
+    <div class="col-md-6">
+        <div class="card addManForm">
+            <div class="card-body">
+                <form (ngSubmit)="onSubmit" #messageForm="ngForm">
+                    <div *ngIf="formError" class="alert alert-danger" role="alert">
+                        {{ formError }}
+                    </div>
+                    <div class="form-group">
+                        <label for="name">Title</label>
+                        <input required="required" minlength="3" ngModel value="newtitle" name="title" type="text" #name="ngModel"
+                            class="form-control" id="title" placeholder="Complete title please."
+                            [(ngModel)]="newManual.title" />
+                        <!-- <div class="alert alert-danger" *ngIf="name.touched && !name.valid">
+                        <div *ngIf="title.errors.required">Title is required.</div>
+                        <div *ngIf="name.errors.minlength">Title is minimum of {{ name.errors.minlength.requiredLength }}
+                            characters.</div>
+                    </div> -->
+                    </div>
+                    <div class="form-group">
+                        <label for="edition">Edition</label>
+                        <input required="required" ngModel value="newEdition" name="edition" type="text" #email="ngModel" class="form-control"
+                            id="edition" placeholder="If no edition type 'none'." [(ngModel)]="newManual.edition" />
+                        <!-- Edition is required if None, type None. -->
+                    </div>
+                    <div class="form-group">
+                        <label for="author">Author</label>
+                        <input required="required" ngModel value="newAuthor" name="author" type="text" #name="ngModel" class="form-control"
+                            id="author" placeholder="Place a comma between mulitple authors." [(ngModel)]="newManual.author"/>
+                        <!-- Author is required. -->
+                    </div>
+                    <div class="form-group">
+                        <label for="publisher">Publisher</label>
+                        <input ngModel value="newPublisher" name="publisher" type="text" #name="ngModel" class="form-control" id="publisher"
+                            [(ngModel)]="newManual.publisher" />
+                    </div>
+                    <div class="">
+                        <div class="orISBN">
+                            <p class="">&mdash; OR &mdash;</p>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="isbn">ISNB</label>
+                        <input required ngModel name="isbn" type="text" #email="ngModel" class="form-control" id="isbn"
+                            [(ngModel)]="newManual.isbn" />
+                        <!-- ISBN is required. -->
+                    </div>
+                    <div>
+                        <input type="submit" onclick="return confirm('Your message has been sent.')"
+                            class="btn btn-success" value="Send">
+                        <input type="reset" class="btn btn-outline-secondary float-right" value="Clear">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card addManText">
+            <div class="card-body">
+                <p class="card-text">Please fill out the form to request a manual or textbook be added. You should see
+                    your request within 24hrs.</p>
+            </div>
         </div>
     </div>
 </div>

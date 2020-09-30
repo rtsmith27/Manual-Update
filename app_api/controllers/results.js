@@ -60,9 +60,11 @@ const resultsCreate = (req, res) => {
 };
 
 const resultsReadOne = (req, res) => {
+  console.log("resultid", req.params.resultid);
   Res
     .findById(req.params.resultid)
     .exec((err, result) => {
+      console.log("entered readone");
       if (!result) {
         return res
           .status(404)
@@ -74,6 +76,7 @@ const resultsReadOne = (req, res) => {
           .status(404)
           .json(err);
       } else {
+        console.log("result", result);
         return res
           .status(200)
           .json(result);

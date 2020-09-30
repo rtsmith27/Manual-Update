@@ -12,7 +12,7 @@ const ctrlAuth = require('../controllers/authentication');
 
 // results are locations
 router
-  .route('/results/:searchstring')
+  .route('/results/search/:searchstring')
   .get(ctrlResults.resultsListByAlphabetical);
 router
   .route('/results')

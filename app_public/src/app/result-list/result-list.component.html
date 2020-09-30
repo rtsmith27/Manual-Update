@@ -1,20 +1,22 @@
 <!-- <app-page-header></app-page-header> -->
 <!-- <app-result-list></app-result-list> -->
-<div class="card" *ngFor="let result of results">
-    <div class="card-block">
-        <h4>
-            <a routerLink="/result/{{result._id}}"><label>Title:&nbsp;</label>{{ result.title }}</a>
-            <span class="badge badge-pill badge-default float-right"><label>ISBN:&nbsp;</label>{{ result.isbn }}</span>
-        </h4>
-        <h3>
-        <p class="info"><label>Edition:&nbsp;</label>{{ result.edition }}</p>
-        <p class="info"><label>Publisher:&nbsp;</label>{{ result.publisher }}</p>
-        <span class="info">{{ result.lastUpdate }}</span>
-        <span class="info">{{ result.updateCount }}</span>
-        <div class="info">
-            <span *ngFor="let author of result.author" class="badge badge-warning"><label>Author:&nbsp;</label>{{author}}</span>
+<div>
+    <div class="card gridUpdateList" *ngFor="let result of results">
+        <div class="card-block">
+            <h4>
+                <label>Title:&nbsp;</label>
+                <span><a routerLink="/result/{{result._id}}">{{ result.title }}</a></span>
+                <span class="badge badge-pill badge-default float-right"><label>ISBN:&nbsp;</label>{{ result.isbn }}</span>
+                <p class="info"><label>Edition:&nbsp;</label>{{ result.edition }}</p>
+                <p class="info"><label>Publisher:&nbsp;</label>{{ result.publisher }}</p>
+                <span class="info">{{ result.lastUpdate }}</span>
+                <span class="info">{{ result.updateCount }}</span>
+                <div class="info">
+                    <span *ngFor="let author of result.author"
+                        class="badge badge-warning"><label>Author:&nbsp;</label>{{author}}</span>
+                </div>
+            </h4>
         </div>
-        </h3>
     </div>
 </div>
 <!-- <div class="card" *ngFor="let update of updates">

@@ -6,28 +6,29 @@
 
 <section class="section">
     <!-- <iframe name="dummyframe" id="dummyframe" style="display: none;"></iframe> -->
-    <div class="container">
-        <div class="col-md-6">
-            <form #messageForm="ngForm">
+    <div class="card card-primary contactForm">
+        <div class="col-12">
+            <form #messageForm="ngForm" >
                 <div class="form-group">
                     <label for="name">Name</label>
                     <input required minlength="5" ngModel name="name" type="text" #name="ngModel" class="form-control"
                         id="name">
                     <div class="alert alert-danger" *ngIf="name.touched && !name.valid">
                         <div *ngIf="name.errors.required">Name is required.</div>
-                        <div *ngIf="name.errors.minlength">Name is minimum {{ name.errors.minlength.requiredLength }}
-                            character.</div>
+                        <div *ngIf="name.errors.minlength">Name is minimum of {{ name.errors.minlength.requiredLength }}
+                            characters.</div>
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="email">Email Address</label>
                     <input required ngModel name="email" type="text" #email="ngModel" class="form-control" id="email">
-                    Email is required.
+                    <div class="alert alert-danger" *ngIf="email.touched && !email.valid">
+                        <div *ngIf="email.errors.required">Email is required.</div>
+                    </div>
                 </div>
                 <div class="alert alert-danger" *ngIf="email.touched && email.errors?.email">
                     Enter a valid email address.
                 </div>
-
                 <div class="form-group">
                     <label for="message">Message</label>
                     <textarea required ngModel #message="ngModel" name="message" id="message" cols="20" rows='5'
@@ -38,8 +39,8 @@
                 </div>
                 <div>
                     <input type="button" onclick="return confirm('Your message has been sent.')"
-                        class="btn btn-lg btn-success" value="Send">
-                    <input type="reset" class="btn btn-lg btn-outline-secondary float-right" value="Clear">
+                        class="btn btn-success" value="Send">
+                    <input type="reset" class="btn btn-outline-secondary float-right" value="Clear">
                 </div>
             </form>
         </div>

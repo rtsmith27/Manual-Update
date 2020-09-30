@@ -5,7 +5,9 @@ const Res = mongoose.model('Result');
 
 
 const updatesCreate = (req, res) => {
+  console.log("inside updatesCreate");
   const resultId = req.params.resultid;
+  console.log("resultId updating", req.params.resultid);
     if (resultId) {
       Res
         .findById(resultId)
@@ -186,12 +188,22 @@ const updatesReadOne = (req, res) => {
   };
 
   const doAddUpdate = (req, res, result) => {
+    console.log("in doAddUpdate");
     if (!result) {
       res
         .status(404)
         .json({"message": "Result not found"});
     } else {
-      const { updateCount, chapter, updater, votes, section, updateText, createdOn} = req.body;
+      console.log("inside update else");
+      console.log("printing body", req.body);
+      //const { chapter, updater, votes, section, updateText, createdOn, updateCount} = req.body;
+      let chapter = req.body.chapter;
+      let updater = req.body.updater;
+      let votes = req.body.votes;
+      let section = req.body.section;
+      let updateText = req.body.updateText;
+      let createdOn = req.body.createdOn;
+      let updateCount = req.body.updateCount;
       result.updates.push({
         updateCount,
         chapter,
