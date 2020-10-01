@@ -196,7 +196,7 @@ body {
 }
 
 .bgimage .search input{
-  border: 1px solid black;
+  border: 1px solid orangered;
   border-right: 0;
   font-size: 20px;
   color: black;
@@ -209,7 +209,7 @@ body {
   width: 55px;  
   height: 55px;
   border-radius: 5px, 0px, 0px, 5px;
-  border: 1px solid black;
+  border: 1px solid orangered;
   border-left: 0;
 }
 

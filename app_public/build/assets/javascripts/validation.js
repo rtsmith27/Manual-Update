@@ -12,4 +12,3 @@ $('#addUpdate').submit(function (e) {
       return false;
     }
   });
-  

@@ -38,7 +38,7 @@ app.use('/api', (req, res, next) => {
 
 // app.use('/', indexRouter);
 app.use('/api', apiRouter);
-app.get(/(\/about)|(\/result\/[a-z0-9]{24})/, function(req, res) {
+app.get(/(\/about)|(\/result\/[a-z0-9]{24})/, function(req, res, next) {
   res.sendFile(path.join(__dirname, 'app_public', 'build', 'index.html'));
 });
 

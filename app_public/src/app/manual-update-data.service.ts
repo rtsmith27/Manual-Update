@@ -1,3 +1,4 @@
+import { environment } from '../environments/environment';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Result, Update } from './result';
@@ -9,7 +10,13 @@ export class ManualUpdateDataService {
 
   constructor(private http: HttpClient) { }
 
-  private apiBaseUrl = 'http://localhost:3000/api';
+  private apiBaseURl = environment.apiBaseUrl;
+                // build:
+  // private apiBaseUrl = 'http://localhost:3000/api';
+              // production:
+  private apiBaseUrl = 'https://manualupdate.herokuapp.com/api';
+  
+
   public search: string;
 
   public getResults(): Promise<Result[]> {
