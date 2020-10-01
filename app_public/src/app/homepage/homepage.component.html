@@ -9,15 +9,16 @@
         <h4 class="text-responsive">Join the community, become an Updater.</h4>
       </div>
       <div class="search">
-        <div class="col-lg-6" >
-          <form  (ngSubmit)="mongoSearch()">
-            <div class="input-group">
-              <!-- <div class="d-flex"> -->
-              <input type='text' [(ngModel)]="searchstring" id='searchstring' name='searchstring' class="form-control search-form" placeholder="Find your update">
+        <div class="col-lg-6">
+          <form (ngSubmit)="mongoSearch()">
+            <div class="input-group mb-3 input-group-lg">
+              <div class="input-group-append">
+              <input type='text' [(ngModel)]="searchstring" id='searchstring' name='searchstring'
+                class="form-control search-form rounded-0" placeholder="Find your update">
               <span class="input-group-btn">
-                <button type="submit" class="search-btn"><i class="fa fa-book-open"></i></button>
+                <button type="submit" class="search-btn rounded-0"><i class="fa fa-book-open fa-2x"></i></button>
               </span>
-              <!-- </div> -->
+              </div>
             </div>
           </form>
         </div>
@@ -27,4 +28,3 @@
 </body>
 
 </html>
-<!-- <p class="text-center">Some centered text</p> -->

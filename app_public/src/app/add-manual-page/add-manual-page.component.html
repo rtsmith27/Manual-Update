@@ -7,15 +7,15 @@
     <div class="col-md-6">
         <div class="card addManForm">
             <div class="card-body">
-                <form (ngSubmit)="onSubmit" #messageForm="ngForm">
+                <form #messageForm="ngForm">
                     <div *ngIf="formError" class="alert alert-danger" role="alert">
-                        {{ formError }}
+                       <!--  {{ formError }} -->
                     </div>
                     <div class="form-group">
                         <label for="name">Title</label>
                         <input required="required" minlength="3" ngModel value="newtitle" name="title" type="text" #name="ngModel"
                             class="form-control" id="title" placeholder="Complete title please."
-                            [(ngModel)]="newManual.title" />
+                             />
                         <!-- <div class="alert alert-danger" *ngIf="name.touched && !name.valid">
                         <div *ngIf="title.errors.required">Title is required.</div>
                         <div *ngIf="name.errors.minlength">Title is minimum of {{ name.errors.minlength.requiredLength }}
@@ -25,19 +25,19 @@
                     <div class="form-group">
                         <label for="edition">Edition</label>
                         <input required="required" ngModel value="newEdition" name="edition" type="text" #email="ngModel" class="form-control"
-                            id="edition" placeholder="If no edition type 'none'." [(ngModel)]="newManual.edition" />
+                            id="edition" placeholder="If no edition type 'none'." />
                         <!-- Edition is required if None, type None. -->
                     </div>
                     <div class="form-group">
                         <label for="author">Author</label>
                         <input required="required" ngModel value="newAuthor" name="author" type="text" #name="ngModel" class="form-control"
-                            id="author" placeholder="Place a comma between mulitple authors." [(ngModel)]="newManual.author"/>
+                            id="author" placeholder="Place a comma between mulitple authors." />
                         <!-- Author is required. -->
                     </div>
                     <div class="form-group">
                         <label for="publisher">Publisher</label>
                         <input ngModel value="newPublisher" name="publisher" type="text" #name="ngModel" class="form-control" id="publisher"
-                            [(ngModel)]="newManual.publisher" />
+                             />
                     </div>
                     <div class="">
                         <div class="orISBN">
@@ -46,8 +46,7 @@
                     </div>
                     <div class="form-group">
                         <label for="isbn">ISNB</label>
-                        <input required ngModel name="isbn" type="text" #email="ngModel" class="form-control" id="isbn"
-                            [(ngModel)]="newManual.isbn" />
+                        <input required ngModel name="isbn" type="text" #email="ngModel" class="form-control" id="isbn"/>
                         <!-- ISBN is required. -->
                     </div>
                     <div>

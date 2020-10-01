@@ -2,7 +2,7 @@
 <!-- <upvote-button [itemId]='item?.$key' [userId]='user?.uid'></upvote-button> -->
 <section class="stick ">
   <div class="card mainCard">
-    <div class="">
+    <div class="shadow p-4 mb-4">
       <p><label>Title:&nbsp;&nbsp;</label>{{ result.title }}</p>
       <p><label>Edition:&nbsp;&nbsp;</label>{{ result.edition }}</p>
       <p><label>Author:&nbsp;&nbsp;</label>{{ result.author }}</p>
@@ -64,7 +64,7 @@
   <div *ngFor="let update of result.updates">
     <div class="card card-block updateCard">
       <div class="col-12">
-        <div class="update">
+        <div class="update shadow p-4 mb-4">
           <label>Chapter:&nbsp;&nbsp;</label><span class="updateUpdater">{{ update.chapter }}</span>
           <span class="badge badge-warning float-right updateUpdater"><label>Updater:&nbsp;&nbsp;</label>{{ update.updater }}</span><br>
           <label>Section:&nbsp;&nbsp;</label><span class="updateUpdater">{{ update.section }}</span><br>

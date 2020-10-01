@@ -12,7 +12,7 @@
                 <div class="form-group">
                     <label for="name">Name</label>
                     <input required minlength="5" ngModel name="name" type="text" #name="ngModel" class="form-control"
-                        id="name">
+                        id="name" placeholder="Full name please">
                     <div class="alert alert-danger" *ngIf="name.touched && !name.valid">
                         <div *ngIf="name.errors.required">Name is required.</div>
                         <div *ngIf="name.errors.minlength">Name is minimum of {{ name.errors.minlength.requiredLength }}
@@ -21,9 +21,10 @@
                 </div>
                 <div class="form-group">
                     <label for="email">Email Address</label>
-                    <input required ngModel name="email" type="text" #email="ngModel" class="form-control" id="email">
+                    <input required ngModel name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"  type="text" #email="ngModel" class="form-control" id="email">
                     <div class="alert alert-danger" *ngIf="email.touched && !email.valid">
                         <div *ngIf="email.errors.required">Email is required.</div>
+                        <div [hidden]="!email.errors?.pattern">Invalid email</div>
                     </div>
                 </div>
                 <div class="alert alert-danger" *ngIf="email.touched && email.errors?.email">

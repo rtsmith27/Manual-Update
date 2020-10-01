@@ -2,7 +2,7 @@
 <!-- <app-result-list></app-result-list> -->
 <div>
     <div class="card gridUpdateList" *ngFor="let result of results">
-        <div class="card-block">
+        <div class="card-block shadow p-4 mb-4">
             <h4>
                 <label>Title:&nbsp;</label>
                 <span><a routerLink="/result/{{result._id}}">{{ result.title }}</a></span>
