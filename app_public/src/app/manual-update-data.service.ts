@@ -12,9 +12,9 @@ export class ManualUpdateDataService {
 
   private apiBaseURl = environment.apiBaseUrl;
                 // build:
-  // private apiBaseUrl = 'http://localhost:3000/api';
+  private apiBaseUrl = 'http://localhost:3000/api';
               // production:
-  private apiBaseUrl = 'https://manualupdate.herokuapp.com/api';
+  // private apiBaseUrl = 'https://manualupdate.herokuapp.com/api';
   
 
   public search: string;
